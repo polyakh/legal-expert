@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NP Legal - International law expertise between Poland and Ukraine. Professional legal services for businesses and individuals.">
+    <meta name="theme-color" content="#1B1464">
+    <title>Legal Expert - International Legal Services</title>
+    <link rel="preload" href="/src/fonts/playfairdisplay-variablefont_wght-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/opensans-variablefont_wdthwght-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./src/styles/main.css">
+
+    <style>
+    :root {
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-tight: 1.2;
+
+  /* Base colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Brand colors */
+  --color-navy: #1B1464;
+  --color-gold: #DAA520;
+  --color-dark-blue: #0F0A3C;
+  --color-light-gold: #F4D03F;
+  --color-light-blue: #3498DB;
+  --color-dark-gold: #B8860B;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #CBD5E0;
+  --color-link-hover: #FFD700;
+  
+  /* UI Elements */
+  --focus-ring-color: #4D90FE;
+  --focus-ring-width: 3px;
+  --outline-offset: 2px;
+  --border-radius-base: 0.5rem;
+  --border-width-base: 2px;
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Spacing */
+  --spacing-1: 0.25rem;   /* 4px  */
+  --spacing-2: 0.5rem;    /* 8px  */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  
+  /* Layout */
+  --container-max-width: 1280px;
+  --touch-target-size: 44px;
+  --hero-img-height: 750px;
+  --skiplink-initial-top: -40px;
+  
+  /* Animations */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-ease: ease;
+  
+  /* Z-index layers */
+  --z-negative: -1;
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-modal: 100;
+  --z-toast: 1000;
+  --z-tooltip: 1100;
+  --z-skiplink: 1200;
+}
+
+/* ===== 1. Font Faces ===== */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/src/fonts/playfairdisplay-variablefont_wght-webfont.woff2) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/src/fonts/opensans-variablefont_wdthwght-webfont.woff2) format('woff');
+}
+
+/* ===== 2. Reset & Base Styles ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-navy);
+  min-height: 100vh;
+  font-family: var(--font-body);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+/* ===== 3. Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+body, p, li, a {
+  font-family: var(--font-body);
+}
+
+/* ===== 4. Accessibility ===== */
+:focus {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--outline-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--skiplink-initial-top);
+  left: 0;
+  background: var(--color-gold);
+  color: var(--color-navy);
+  padding: 8px;
+  z-index: var(--z-skiplink);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== 5. Layout & Container ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== 6. Navigation ===== */
+.nav {
+  background-color: var(--color-dark-blue);
+  color: var(--color-text);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(--z-10);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: opacity var(--transition-fast) var(--transition-ease);
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  opacity: 0.9;
+}
+
+.logo-icon {
+  color: var(--color-gold);
+  height: 2rem;
+  width: 2rem;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  margin: 0 1.5rem;
+  padding: 0.5rem;
+  transition: color var(--transition-medium) var(--transition-ease);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+.mobile-menu {
+  display: block;
+  color: var(--color-gold);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* ===== 7. Buttons ===== */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-medium) var(--transition-ease);
+  font-size: var(--font-size-base);
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-text);
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-dark-gold);
+  color: var(--color-navy);
+}
+
+/* ===== 8. Hero Section ===== */
+.hero-section {
+  padding: 2rem 0 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-heading {
+  font-size: clamp(1.875rem, 5vw, 2.4rem);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-6);
+}
+
+.hero-description {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-lg);
+}
+
+.hero {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero__img {
+  width: 100%;
+  object-fit: cover;
+  height: var(--hero-img-height);
+  aspect-ratio: 16/9;
+}
+
+/* ===== 9. Services Section ===== */
+.services-section {
+  padding: var(--spacing-16) 0;
+  background-color: var(--color-white);
+}
+
+.services-heading {
+  font-size: var(--font-size-4xl);
+  color: var(--color-navy);
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+  line-height: var(--line-height-tight);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: var(--color-white);
+  padding: var(--spacing-6);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 4px 35px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s var(--transition-ease), border-color 0.3s var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-white);
+  margin-bottom: var(--spacing-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: var(--color-gold);
+  width: 24px;
+  height: 24px;
+}
+
+.large-icon, .larg-icon, .icon-larg {
+  width: 48px;
+  height: 48px;
+}
+
+.service-title {
+  color: var(--color-navy);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-2);
+  font-weight: 600;
+}
+
+.service-description {
+  color: var(--color-dark-blue);
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-relaxed);
+}
+
+.service-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast) var(--transition-ease);
+  margin-top: auto;
+}
+
+.service-link:hover,
+.service-link:focus {
+  color: var(--color-light-gold);
+  text-decoration: underline;
+}
+
+/* ===== 10. Read More Components ===== */
+/* Hero Read More */
+.read-more-block {
+  color: var(--color-text);
+  padding: 20px;
+  border-radius: var(--border-radius-base);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: var(--line-height-relaxed);
+}
+
+.read-more-block__toggle {
+  display: none;
+}
+
+.read-more-block__content {
+  position: relative;
+  overflow: hidden;
+  max-height: 200px;
+  transition: max-height 0.5s var(--transition-ease);
+}
+
+.read-more-block__toggle:checked ~ .read-more-block__content {
+  max-height: 2000px;
+}
+
+.read-more-block__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(27, 20, 100, 0), rgba(27, 20, 100, 1));
+  pointer-events: none;
+  transition: opacity var(--transition-medium) var(--transition-ease);
+}
+
+.read-more-block__toggle:checked ~ .read-more-block__content .read-more-block__fade {
+  opacity: 0;
+}
+
+/* Read More Buttons */
+.read-more-block__expand-btn,
+.read-more-block__collapse-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color var(--transition-medium) var(--transition-ease);
+}
+
+.read-more-block__expand-btn:hover,
+.read-more-block__collapse-btn:hover,
+.service-read-more__expand-btn:hover,
+.service-read-more__collapse-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.read-more-block__toggle:checked ~ .read-more-block__collapse-btn,
+.service-read-more__toggle:checked ~ .service-read-more__collapse-btn {
+  display: inline-block;
+}
+
+.read-more-block__toggle:not(:checked) ~ .read-more-block__collapse-btn,
+.service-read-more__toggle:not(:checked) ~ .service-read-more__collapse-btn {
+  display: none;
+}
+
+.read-more-block__toggle:checked ~ .read-more-block__expand-btn,
+.service-read-more__toggle:checked ~ .service-read-more__expand-btn {
+  display: none;
+}
+/* Service Card Read More Component */
+.service-description-container {
+  position: relative;
+  margin-bottom: var(--spacing-4);
+}
+
+.service-read-more__toggle {
+  display: none;
+}
+
+.service-read-more__content {
+  position: relative;
+  overflow: hidden;
+  max-height: 80px;
+  transition: max-height 0.3s ease;
+}
+
+/* When expanded, position the content properly */
+.service-read-more__toggle:checked ~ .service-read-more__content {
+  position: absolute;
+  z-index: 10;
+  max-height: none;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  border-radius: 0.5rem;
+  width: calc(100% + 20px);
+  left: -10px;
+  border: 1px solid rgba(218, 165, 32, 0.2);
+  padding-top: 24px;
+}
+
+.service-read-more__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.service-read-more__toggle:checked ~ .service-read-more__content .service-read-more__fade {
+  opacity: 0;
+}
+
+/* Expand button styling */
+.service-read-more__expand-btn,
+.service-read-more__collapse-btn {
+  display: inline-block;
+  color: var(--color-gold);
+  cursor: pointer;
+  padding: 0 8px;
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+  transition: color 0.3s ease;
+}
+
+.service-read-more__expand-btn:hover {
+  color: var(--color-dark-gold);
+}
+
+/* Collapse button styling and positioning */
+.service-read-more__collapse-btn {
+  position: absolute;
+  top: 16px;
+  color: var(--color-gold);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: color 0.3s ease;
+  padding: 0 12px;
+  z-index: 11;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.service-read-more__collapse-btn:hover {
+  color: var(--color-dark-gold);
+}
+
+/* Toggle visibility of buttons based on checkbox state */
+.service-read-more__toggle:checked ~ .service-read-more__collapse-btn {
+  display: inline-block;
+}
+
+.service-read-more__toggle:not(:checked) ~ .service-read-more__collapse-btn {
+  display: none;
+}
+
+.service-read-more__toggle:checked ~ .service-read-more__expand-btn {
+  display: none;
+}
+
+/* ===== 11. Media Queries ===== */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  
+  .mobile-menu {
+    display: none;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .consultation-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .service-card {
+    transform: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-navy: #000000;
+    --color-gold: #FFD700;
+    --color-dark-blue: #000033;
+    --color-text: #FFFFFF;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .hero-image,
+  .mobile-menu,
+  .nav-links {
+    display: none;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .services-section {
+    background: white;
+    padding: var(--spacing-8) 0;
+  }
+  
+  .service-card {
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+  
+  .service-icon {
+    display: none;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <nav role="navigation" aria-label="Main navigation" class="nav">
+      <div class="container nav-content">
+        <div class="logo-section">
+          <a href="#" class="logo-link">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" role="img">
+              <path d="M12 3v18M3 12h18" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brand-name">NP Legal</span>
+          </a>
+        </div>
+        <div class="nav-links" role="menubar">
+          <a href="#home" role="menuitem">Home</a>
+          <a href="#services" role="menuitem">Послуги</a>
+          <a href="#about" role="menuitem">About</a>
+          <a href="#contact" role="menuitem">Contact</a>
+        </div>
+        <button class="btn btn-primary consultation-btn" style="display: none;" aria-label="Book a consultation">
+          Запис на консультацію
+        </button>
+        <button class="mobile-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <section id="home" class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="read-more-block">
+            <!-- Hidden checkbox to track state -->
+            <input type="checkbox" class="read-more-block__toggle" id="read-more-block-1">
+            
+            <h1 id="hero-heading" class="hero-heading">Про Компанію "Legal Expert"</h1>
+            <!-- The actual content -->
+            <div class="read-more-block__content">
+              <p>Ласкаво просимо на офіційний сайт "Legal Expert", компанії, яка відіграє ключову роль у юридичному супроводженні українців в Польщі. Заснована на початку 2023 році українським адвокатом з 15-річним досвідом, яка була вписана в Реєстр закордонних адвокатів Польщі, що дає право здійснення юридичної діяльності на території Польщі та створення компанії - Kancelaria prawna. Наша компанія спеціалізується на наданні комплексних юридичних послуг, обслуговуючи клієнтів у найрізноманітніших сферах діяльності. Ми успішно співпрацювали з представниками різних галузей, таких як гастрономія, beauty, барбершопи, стоматології, івент-агенції, IT-компанії, HR-агенції, інтернет-магазини, сфера дошкільної освіти, швейний бізнес та інфобізнес. Наш досвід і професіоналізм забезпечують надійний юридичний захист і підтримку для кожного нашого клієнта, незалежно від складності їхніх запитів. Тому, у своїй роботі ми керуємося принципами прозорості, професіоналізму та звісно ж конфіденційності, що дозволяє нам будувати довірчі та довгострокові відносини з нашими клієнтами. Незалежно від того, чи ви тільки розпочинаєте свою діяльність у Польщі, чи вже маєте успішний бізнес, ми можемо вам допомогти розібратися у всіх юридичних нюансах. Адже наш досвід у поєднанні з глибокими знаннями польського та українського законодавства дозволяє знаходити найкращі рішення навіть у найскладніших ситуаціях.</p>
+              <div class="read-more-block__fade"></div>
+            </div>
+            
+            <!-- Labels that act as buttons -->
+            <label for="read-more-block-1" class="read-more-block__expand-btn">Читати далі</label>
+            <label for="read-more-block-1" class="read-more-block__collapse-btn">Показати менше</label>
+          </div>
+
+          <!-- Image optimization best practices -->
+          <picture class="hero">
+            <source
+                    type="image/webp"
+                    srcset="
+      ./src/assets/images/header-legal-300.webp 300w,
+      ./src/assets/images/header-legal-600.webp 600w,
+      ./src/assets/images/header-legal-900.webp 900w,
+      ./src/assets/images/header-legal-1200.webp 1200w"
+                    sizes="(max-width: 768px) 100vw,
+           (max-width: 1200px) 80vw,
+           1200px"
+            >
+            <img
+                    src="./src/assets/images/header-legal-900.webp"
+                    alt="Legal header image"
+                    loading="lazy"
+                    class="hero__img"
+            >
+          </picture>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="services" class="services-section" aria-labelledby="services-heading">
+    <div class="container">
+
+      <h2 id="services-heading" class="services-heading">Наші послуги</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon large-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
+
+          </div>
+          <h3 class="service-title">Розробка договорів</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-1">
+            <div class="service-read-more__content">
+              <p class="service-description">Розробка трудових, цивільно-правових договорів, створення контрактів на надання послуг (декількома мовами, якщо це необхідно) - передбачає підготовку юридично грамотних документів, що враховують специфіку діяльності клієнта, правові вимоги та можливі ризики.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-1" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-1" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon larg-icon">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+              <path d="M15 19l2 2l4 -4" />
+            </svg>
+          </div>
+          <h3 class="service-title">Оформлення довіреностей в Польщі</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-2">
+            <div class="service-read-more__content">
+              <p class="service-description">Супровід в питаннях оформлення довіреностей в Польщі для правочинів в Україні -  здійснення підготовки документів, які відповідають українському законодавству та мають юридичну силу на території України, це дає змогу здійснювати продаж, дарування майна або представляти інтереси в органах нотаріату без особистої присутності в Україні.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-2" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-2" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon larg-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4.5 9h5m-2.5 0v6" /><path d="M13 15v-6l3 4l3 -4v6" /></svg>
+
+          </div>
+          <h3 class="service-title">Реєстрація вашої торгової марки</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-3">
+            <div class="service-read-more__content">
+              <p class="service-description">Реєстрація вашої торгової марки на території Польщі або ЄС, з метою захисту вашого бренду в усіх країнах ЄС (в тому числі і в Польщі) - передбачає подачу заявки до Патентного відомства Польщі або Європейського Союзу Інтелектуальної Власності (EUIPO), що забезпечує правовий захист вашого бренду в усіх країнах-членах ЄС, включаючи Польщу. Ця послуга гарантує, що ваш бренд буде офіційно визнаний і захищений від неправомірного використання або підробок на території всієї Польщі чи Європейського Союзу.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-3" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-3" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon larg-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v.5" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /><path d="M15 19l2 2l4 -4" /></svg>
+
+          </div>
+          <h3 class="service-title">Юридичне упакування інфобізнесів</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-4">
+            <div class="service-read-more__content">
+              <p class="service-description">Юридичне упакування інфобізнесів (курси, інтернет-магазини, семінари, тощо) відповідно до RODO, розроблення оферти (регулямін) та політики конфіденційності під ваш інфобізнес - передбачає розробку документації, що забезпечують захист персональних даних та прав споживачів. Це допомагає вашому бізнесу відповідати європейським стандартам, мінімізуючи юридичні ризики у вигляді багатомільйонних штрафів та підвищуючи довіру клієнтів.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-4" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-4" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-larg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
+          </div>
+          <h3 class="service-title">Відкриття Spółki в Польщі</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-5">
+            <div class="service-read-more__content">
+              <p class="service-description">Допомога відкриття Spółka z o.o. (Товариство) або jednoosobowa działalność gospodarcza (ФОП) - підготовка та подача всіх необхідних документів для реєстрації, а також консультації з вибору оптимальної організаційно-правової форми для вашого бізнесу, а також супровід процесу реєстрації в податкових і державних органах, що забезпечує швидкий та законний старт вашого бізнесу.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-5" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-5" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-larg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 20l10 0" /><path d="M6 6l6 -1l6 1" /><path d="M12 3l0 17" /><path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0" /><path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0" /></svg>
+          </div>
+          <h3 class="service-title">Комплексний юридичний та бухгалтерський супровід вашого бізнесу</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-6">
+            <div class="service-read-more__content">
+              <p class="service-description">Допомога із юридичним та бухгалтерським супроводженням для вашого бізнесу - включає комплексну підтримку, що охоплює правові консультації, складання та перевірку договорів, внесення змін компанії до реєстрів таких як KRS, а також ведення бухгалтерського обліку, податкове планування та звітність, що забезпечує юридичну безпеку вашого бізнесу, мінімізує ризики податкових перевірок і допомагає оптимізувати фінансові потоки.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-6" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-6" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon larg-icon"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <h3 class="service-title">Консультації онлайн та офлайн — у зручному для вас форматі</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-7">
+            <div class="service-read-more__content">
+              <p class="service-description">Проведення консультацій не тільки в режимі офлайн, а й в онлайні. Тому ми можемо вам допомогти вирішити питання, які стосуються, як українського, так і польського законодавства.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-7" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-7" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-larg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M9 12l.01 0" /><path d="M13 12l2 0" /><path d="M9 16l.01 0" /><path d="M13 16l2 0" /></svg>
+          </div>
+          <h3 class="service-title">Підготовка листів, скарг і апеляцій з питань побиту</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-8">
+            <div class="service-read-more__content">
+              <p class="service-description">Написання листів, скарг, досудових претензій, а також апеляцій на рішення про легалізацію побиту в Польщі - професійна підготовка юридичних документів, які аргументовано захищають ваші права та інтереси в процесі отримання або продовження дозволу, що допомагає ефективно оскаржити негативні рішення або уникнути можливих проблем під час оформлення документів, забезпечуючи максимально сприятливий результат для клієнта.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-8" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-8" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon larg-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 5m0 2a2 2 0 0 1 2 -2h16a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M9 12h-7" /><path d="M15 12h7" /></svg>
+          </div>
+          <h3 class="service-title">Легалізація перебування іноземців у Польщі</h3>
+          
+          <!-- Read More Component -->
+          <div class="service-description-container">
+            <input type="checkbox" class="service-read-more__toggle" id="service-read-more-9">
+            <div class="service-read-more__content">
+              <p class="service-description">Наша компанія надає повний юридичний супровід у питаннях, пов’язаних з легалізацією перебування іноземців у Польщі. Ми працюємо як по всій території країни, так і безпосередньо у Варшаві, забезпечуючи індивідуальний підхід до кожного клієнта та дотримання всіх формальних вимог польського законодавства.
+                Наші юристи мають глибокий досвід у міграційному праві та щоденно супроводжують клієнтів у процесі отримання необхідних документів для легального проживання та роботи в Польщі.</p>
+              <div class="service-read-more__fade"></div>
+            </div>
+            <label for="service-read-more-9" class="service-read-more__expand-btn">Читати далі</label>
+            <label for="service-read-more-9" class="service-read-more__collapse-btn">Показати менше</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="experience-section" aria-labelledby="experience-heading">
+    <div class="container">
+      <div class="experience-grid">
+        <div class="experience-image">
+          <img
+                  src="/api/placeholder/800/600"
+                  alt="Professional lawyer reviewing documents in office"
+                  class="lawyer-image"
+          />
+        </div>
+
+        <div class="experience-content">
+          <h2 id="experience-heading" class="experience-title">15 Years of Legal Excellence</h2>
+          <p class="experience-description">
+            With a Master of Laws degree and extensive experience in commercial, corporate, civil, and international law, Nataliia Poliach provides expert legal services across borders.
+          </p>
+
+          <div class="stats-container">
+            <div class="stat-card">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+
+            <div class="stat-card">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Satisfied Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 id="contact-heading" class="contact-title">Get in Touch</h2>
+          <p class="contact-description">Schedule a consultation or inquire about our services.</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-width="2"/>
+                <circle cx="12" cy="10" r="3" stroke-width="2"/>
+              </svg>
+              <span>Warsaw, Poland</span>
+            </div>
+
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke-width="2"/>
+              </svg>
+              <span>+48 123 456 789</span>
+            </div>
+
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-width="2"/>
+                <path d="M22 6l-10 7L2 6" stroke-width="2"/>
+              </svg>
+              <span>contact@nataliapoliach.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form class="contact-form" aria-label="Форма зв'язку">
+            <div class="form-group">
+                <label for="name" class="form-label">Повне ім'я</label>
+                <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-input"
+                        placeholder="Введіть ваше повне ім'я"
+                        required
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="email" class="form-label">Електронна пошта</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="Введіть вашу електронну пошту"
+                        required
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="phone" class="form-label">Телефон</label>
+                <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="form-input"
+                        placeholder="Введіть ваш номер телефону"
+                        pattern="^\+48\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}$"
+                        title="Будь ласка, введіть дійсний польський номер телефону"
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="message" class="form-label">Ваше повідомлення</label>
+                <textarea
+                        id="message"
+                        name="message"
+                        class="form-input form-textarea"
+                        placeholder="Будь ласка, надайте деталі вашого запиту"
+                        rows="6"
+                        required
+                ></textarea>
+            </div>
+        
+            <div class="form-group privacy-consent">
+                <input type="checkbox" id="privacy" name="privacy" required />
+                <label for="privacy">Я даю згоду на зберігання моєї інформації відповідно до вашої <a href="#">Політики конфіденційності</a></label>
+            </div>
+        
+            <button type="submit" class="submit-button">
+                Надіслати запит
+            </button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="brand-logo">NP</div>
+          <p class="brand-description">
+            Professional legal services across Poland and Ukraine.
+          </p>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-links">
+          <h3 class="footer-title">Quick Links</h3>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="#" class="footer-link">Home</a>
+            <a href="#services" class="footer-link">Services</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Legal Column -->
+        <div class="footer-legal">
+          <h3 class="footer-title">Legal</h3>
+          <nav class="footer-nav" aria-label="Legal navigation">
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+            <a href="#terms" class="footer-link">Terms of Service</a>
+            <a href="#cookies" class="footer-link">Cookie Policy</a>
+          </nav>
+        </div>
+
+        <!-- Connect Column -->
+        <div class="footer-social">
+          <h3 class="footer-title">Connect</h3>
+          <div class="social-links">
+            <a href="#linkedin" class="social-link" aria-label="Visit our LinkedIn profile">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke-width="2"/>
+                <rect x="2" y="9" width="4" height="12" stroke-width="2"/>
+                <circle cx="4" cy="4" r="2" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="#facebook" class="social-link" aria-label="Visit our Facebook page">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="#twitter" class="social-link" aria-label="Visit our Twitter profile">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0023 3z" stroke-width="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" role="alert" aria-live="polite">
+    <div class="cookie-content">
+      <p class="cookie-text">
+        We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+      </p>
+      <div class="cookie-buttons">
+        <button
+                class="cookie-button accept-button"
+                aria-label="Accept cookies"
+                onclick="document.querySelector('.cookie-banner').style.display = 'none';"
+        >
+          Accept
+        </button>
+        <button
+                class="cookie-button decline-button"
+                aria-label="Decline cookies"
+                onclick="document.querySelector('.cookie-banner').style.display = 'none';"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
