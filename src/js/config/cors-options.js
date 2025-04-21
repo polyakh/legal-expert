@@ -13,5 +13,6 @@ export const corsOptions = {
   methods: ['GET','POST','OPTIONS'],
   allowedHeaders: ['Content-Type','X-CSRF-Token'],
   exposedHeaders: ['X-RateLimit-Limit','X-RateLimit-Remaining'],
+  // credentials: true,
   maxAge: 600
 };

@@ -8,5 +8,7 @@ dotenvx.config({
 export const {
   PORT = 3000,                                    // default port
   NODE_ENV = 'development',
+  API_PREFIX,
+  CSRF_SECRET,
   ...restEnv
 } = process.env;

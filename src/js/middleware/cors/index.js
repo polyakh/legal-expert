@@ -15,7 +15,7 @@ const allowedOrigins = [
     methods: ['GET','POST','OPTIONS'],
     allowedHeaders: ['Content-Type','X-CSRF-Token'],
     exposedHeaders: ['X-RateLimit-Limit','X-RateLimit-Remaining'],
-    maxAge: 600
+    maxAge: 600,
   };
 
 
