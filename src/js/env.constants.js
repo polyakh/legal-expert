@@ -1,9 +1,9 @@
 export const ENVIRONMENTS = {
-    DEVELOPMENT: 'development',
-    STAGING: 'staging',
-    PRODUCTION: 'production',
-  };
-  
+  DEVELOPMENT: "development",
+  STAGING: "staging",
+  PRODUCTION: "production",
+};
+
 export const CORS_ORIGINS = {
-    [ENVIRONMENTS.DEVELOPMENT]: 'http://localhost:5173',
-  };
+  [ENVIRONMENTS.DEVELOPMENT]: "http://localhost:5173",
+};

@@ -1,18 +1,19 @@
-!**/glob-import/dir/node_modules
-.DS_Store
-.idea
-.pnpm-store
-*.cpuprofile
-*.local
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs and debugging
 *.log
-/.vscode/
-/docs/.vitepress/cache
-/packages/vite/LICENSE
-dist
-dist-ssr
-explorations
-node_modules
-playground-temp
-temp
-TODOs.md
+
+# Environment variables
+.env
+
+# IDE and OS-specific files
+.vscode/
+.idea/
+.DS_Store
+
+# ESLint cache
 .eslintcache
