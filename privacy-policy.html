@@ -1,123 +1,828 @@
 <!DOCTYPE html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
 
-    <!-- Favicon for browser tabs -->
-<link rel="icon" type="image/png" sizes="32x32" href="/src/assets/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/src/assets/icons/favicon-16x16.png">
-<link rel="shortcut icon" href="/src/assets/icons/favicon.ico">
+<head>
+  <meta charset="UTF-8">
 
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" href="/src/assets/icons/apple-touch-icon.png">
+  <!-- Favicon for browser tabs -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/icons/favicon-16x16.png">
+  <link rel="shortcut icon" href="/src/assets/icons/favicon.ico">
 
-<!-- Android Icons (for PWA or homescreen) -->
-<link rel="icon" type="image/png" sizes="192x192" href="/src/assets/icons/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/src/assets/icons/android-chrome-512x512.png">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="/src/assets/icons/apple-touch-icon.png">
 
-<!-- Web App Manifest -->
-<link rel="manifest" href="/src/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Політика конфіденційності для Legal Expert" />
-    <meta name="theme-color" content="#1B1464" />
-    <title>Політика конфіденційності | Legal Expert</title>
-    <link rel="stylesheet" href="src/styles/main.css" />
+  <!-- Android Icons (for PWA or homescreen) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/src/assets/icons/android-chrome-512x512.png">
 
-    <style>
-      body {
-        background-color: #ffffff;
-        color: #0f0a3c;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-      }
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/src/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Політика конфіденційності для Legal Expert">
+  <meta name="theme-color" content="#1B1464">
+  <title>Політика конфіденційності | Legal Expert</title>
+  <link rel="stylesheet" href="src/styles/main.css">
 
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-      }
+  <style>
+/* =========================================
+   PRIVACY POLICY PAGE STYLES
+   Enhanced for better mobile display
+   ========================================== */
 
-      h1 {
-        font-family: 'Playfair Display', serif;
-        color: #1b1464;
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
+/* ===== 1. VARIABLES ===== */
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-navy: #1b1464;
+  --color-dark-blue: #0f0a3c;
+  --color-gold: #daa520;
+  --color-dark-gold: #b8860b;
+  --color-text: #0f0a3c;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.95rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 2rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  
+  /* Layout */
+  --container-width: 800px;
+  --border-radius: 8px;
+  --horizontal-padding: 1.5rem; /* Increased horizontal padding */
+}
 
-      h2 {
-        font-size: 1.25rem;
-        margin-top: 2rem;
-        margin-bottom: 0.75rem;
-        color: #0f0a3c;
-      }
+/* ===== 2. RESET & BASE STYLES ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      p, li {
-        font-size: 1rem;
-        color: #0f0a3c;
-      }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  -webkit-text-size-adjust: 100%; /* Prevents font scaling in landscape on iOS */
+}
 
-      ul {
-        padding-left: 1.25rem;
-      }
+body {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  word-wrap: break-word; /* Ensures text wraps properly on small screens */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-      .btn-primary {
-        background-color: #daa520;
-        color: #ffffff;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-top: 2rem;
-        display: inline-block;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
+/* ===== 3. LAYOUT ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--horizontal-padding);
+  overflow-x: hidden; /* Ensure no horizontal scrolling */
+}
 
-      .btn-primary:hover {
-        background-color: #b8860b;
-        color: #fff;
-      }
+/* ===== 4. TYPOGRAPHY ===== */
+h1, h2 {
+  text-align: center;
+  max-width: 100%; /* Ensure headers don't overflow */
+  overflow-wrap: break-word; /* Allow long words to break */
+}
 
-      .back-link {
-        display: inline-block;
-        margin-top: 2rem;
-        color: #1b1464;
-        text-decoration: underline;
-        font-size: 0.95rem;
-      }
+h1 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2; /* Tighter line height for headings */
+}
 
-      .back-link:hover {
-        text-decoration: none;
-      }
-    </style>
-  </head>
+h2 {
+  font-size: var(--font-size-md);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-dark-blue);
+  line-height: 1.3;
+}
 
-  <body>
-    <main class="container">
-      <h1>Політика конфіденційності</h1>
-      <p>Останнє оновлення: 25 квітня 2025</p>
+p, li {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
+  max-width: 100%; /* Prevent text from overflowing */
+}
 
-      <h2>1. Яку інформацію ми збираємо</h2>
-      <p>Ми збираємо інформацію, яку ви надаєте нам безпосередньо, включаючи:</p>
+ul, ol {
+  padding-left: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+  max-width: 100%;
+}
+
+/* Ensure links wrap properly */
+a {
+  word-break: break-word;
+}
+
+.link-legalexpert {
+  text-align: center;
+  margin: var(--spacing-lg) 0;
+}
+
+/* ===== 5. BUTTONS & LINKS ===== */
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-top: var(--spacing-lg);
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-dark-gold);
+  color: var(--color-white);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: var(--spacing-lg);
+  color: var(--color-navy);
+  text-decoration: underline;
+  font-size: var(--font-size-sm);
+}
+
+.back-link:hover {
+  text-decoration: none;
+}
+
+/* ===== 6. CUSTOM LIST STYLES ===== */
+/* Numbered lists with proper hierarchy */
+.custom-ol {
+  padding-inline-start: 0;
+  margin-block-end: 1em;
+  counter-reset: section;
+  list-style-type: none;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.custom-ol li {
+  display: block;
+  margin-bottom: 0.7em; /* Increased spacing between list items */
+  position: relative; /* Needed for proper positioning of counters */
+  padding-left: 1.5rem; /* Space for the counter */
+}
+
+/* First level */
+.custom-ol > li {
+  counter-increment: section;
+  position: relative;
+}
+
+.custom-ol > li::before {
+  content: counter(section) ". ";
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Second level */
+.custom-ol > li > ol {
+  counter-reset: subsection;
+  padding-inline-start: 0.5em; /* Reduced padding for nested lists */
+  margin-top: 0.7em;
+  margin-left: 0.5em; /* Additional margin for indentation */
+}
+
+.custom-ol > li > ol > li {
+  counter-increment: subsection;
+  padding-left: 2rem; /* More space for longer counters */
+}
+
+.custom-ol > li > ol > li::before {
+  content: counter(section) "." counter(subsection) " ";
+  margin-inline-end: 0.2em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Third level */
+.custom-ol > li > ol > li > ol {
+  counter-reset: subsubsection;
+  padding-inline-start: 0.5em;
+  margin-top: 0.7em;
+  margin-left: 0.5em;
+}
+
+.custom-ol > li > ol > li > ol > li {
+  counter-increment: subsubsection;
+  padding-left: 2.5rem; /* Even more space for longer counters */
+}
+
+.custom-ol > li > ol > li > ol > li::before {
+  content: counter(section) "." counter(subsection) "." counter(subsubsection) " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.custom-ol ol {
+  margin-block-end: 0;
+  list-style-type: none;
+  width: 100%;
+}
+
+/* Dashed list style - improved for mobile */
+.dashed {
+  list-style-type: none;
+  padding-left: 1.2rem;
+}
+
+.dashed li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.dashed li::before {
+  content: "- ";
+  position: absolute;
+  left: 0;
+}
+
+/* ===== 7. RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-lg: 1.75rem;
+    --font-size-md: 1.15rem;
+    --container-width: 100%;
+    --horizontal-padding: 1.25rem; /* Adjust padding for tablets */
+  }
+  
+  .container {
+    padding: var(--spacing-md) var(--horizontal-padding);
+  }
+  
+  h1 {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Improve list spacing and alignment on tablets */
+  .custom-ol {
+    padding-inline-start: 0;
+  }
+  
+  .custom-ol > li > ol {
+    padding-inline-start: 0.5em;
+  }
+  
+  .custom-ol > li > ol > li > ol {
+    padding-inline-start: 0.5em;
+  }
+  
+  /* Better link display */
+  a {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-lg: 1.5rem;
+    --font-size-md: 1.1rem;
+    --font-size-base: 0.95rem;
+    --font-size-sm: 0.85rem;
+    --horizontal-padding: 1rem; /* Adjust padding for mobile */
+  }
+  
+  .container {
+    padding: var(--spacing-md) var(--horizontal-padding);
+  }
+  
+  h2 {
+    margin-top: 1.5rem;
+  }
+  
+  /* Better button handling on mobile */
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Improved list handling for small screens */
+  .custom-ol li {
+    margin-bottom: 1em; /* More spacing between list items on mobile */
+  }
+  
+  .custom-ol > li {
+    padding-left: 1.2rem; /* Less space needed for counters */
+  }
+  
+  .custom-ol > li > ol > li {
+    padding-left: 1.5rem;
+  }
+  
+  .custom-ol > li > ol > li > ol > li {
+    padding-left: 1.8rem;
+  }
+  
+  /* Special handling for long URLs */
+  a[href] {
+    word-break: break-all; /* Force break for very long URLs */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  :root {
+    --horizontal-padding: 0.75rem; /* Even more compact padding for very small devices */
+    --font-size-base: 0.9rem; /* Slightly smaller font */
+  }
+  
+  /* Further optimize list display */
+  .custom-ol > li > ol {
+    margin-left: 0;
+  }
+  
+  .custom-ol > li > ol > li > ol {
+    margin-left: 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0 1cm;
+  }
+  
+  h1 {
+    font-size: 16pt;
+    margin-bottom: 1cm;
+  }
+  
+  h2 {
+    font-size: 14pt;
+    margin-top: 1cm;
+    page-break-after: avoid;
+  }
+  
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  .btn-primary,
+  .back-link {
+    display: none;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+  </style>
+</head>
+
+<body class="active-lang-pl">
+  <main class="container">
+    <div lang="pl">
+      <h1>POLITYKA PRYWATNOŚCI STRONY INTERNETOWEJ</h1>
+      <div class="link-legalexpert"> <a href="legalexpert.website">legalexpert.website</a></div>
+
+      <p>Ostatnia aktualizacja: 01 maja 2025 r.</p>
+      <ol>
+        <li>Dla Właściciela niniejszej strony internetowej, ochrona danych osobowych Użytkowników jest sprawą najwyższej
+          wagi. Dokłada on ogrom starań, aby Użytkownicy czuli się bezpiecznie, powierzając swoje dane osobowe w trakcie
+          korzystania ze strony internetowej.</li>
+        <li>Użytkownik to osoba fizyczna, osoba prawna albo jednostka organizacyjna, nieposiadająca osobowości prawnej,
+          której ustawa przyznaje zdolność prawną, korzystająca z usług elektronicznych, dostępnych w ramach strony
+          internetowej.</li>
+        <li>Niniejsza polityka prywatności wyjaśnia zasady i zakres przetwarzania danych osobowych Użytkownika,
+          przysługujące mu prawa, jak też obowiązki administratora tych danych, a także informuje o używaniu plików
+          cookies.</li>
+        <li>Administrator stosuje najnowocześniejsze środki techniczne i rozwiązania organizacyjne, zapewniające wysoki
+          poziom ochrony przetwarzanych danych osobowych oraz zabezpieczenia przed dostępem osób nieupoważnionych.</li>
+      </ol>
+
+      <h2>I. ADMINISTRATOR DANYCH OSOBOWYCH</h2>
+      <p>Administratorem danych osobowych jest Nataliia Poliakh z siedzibą w/przy: ul. Grójecka 208, Warszawa, 02-390,
+        NIP: 7011127601 (zwany dalej: <b>„Właściciel"</b>).</p>
+
+      <h2>II. CEL PRZETWARZANIA DANYCH OSOBOWYCH</h2>
+      <ol>
+        <li>Cel przetwarzania danych osobowych</li>
+        <li>Każda osoba przekazująca Właścicielowi dane osobowe za pośrednictwem formularzy zamieszczonych na stronie
+          internetowej jest informowana o konkretnym celu w jakim dane te są przetwarzane oraz podstawie prawnej
+          przetwarzania.</li>
+        <li>Właściciel wykorzystuje dane osobowe wyłącznie we wskazanych celach. W szczególności:</li>
+      </ol>
+
       <ul>
-        <li>Ім’я та контактні дані</li>
-        <li>Налаштування комунікації</li>
-        <li>Інформацію про використання сервісу</li>
+        <li><b>Przygotowania oferty usług prawnych</b> – przetwarzanie danych jest niezbędne do przygotowania odpowiedzi
+          na zapytania klientów dotyczące oferowanych przez nas usług oraz do przedstawienia indywidualnych warunków
+          współpracy.</li>
+        <li><b>Zawarcia i realizacji umowy o świadczenie usług prawnych</b> – dane są przetwarzane w celu zawarcia umowy
+          oraz dalszego wykonania usług zgodnie z warunkami umowy. Obejmuje to doradztwo prawne, reprezentację przed
+          sądami, organami administracji publicznej oraz przygotowanie i analizę dokumentacji prawnej.</li>
+        <li><b>Obsługi posprzedażowej i wsparcia klienta</b> – dane są wykorzystywane do komunikacji z klientami w
+          sprawach związanych z realizacją umowy, jak również w celu rozwiązywania ewentualnych problemów i odpowiedzi
+          na pytania.</li>
+        <li><b>Działania marketingowe</b> – za wyraźną zgodą, dane mogą być również przetwarzane w celu przekazywania
+          informacji o nowych produktach, usługach, promocjach czy wydarzeniach, które mogą interesować naszych
+          klientów.</li>
+        <li><b>Zapewnienia zgodności z obowiązującymi przepisami prawa</b> – w niektórych przypadkach przetwarzanie
+          danych jest niezbędne do spełnienia obowiązków prawnych ciążących na firmie, na przykład w zakresie
+          przechowywania dokumentacji czy współpracy z organami państwowymi.</li>
       </ul>
+      <p>Dane osobowe są przetwarzane na podstawie zgody udzielonej przez użytkownika, niezbędności do wykonania umowy,
+        a także w zakresie, w jakim jest to konieczne do realizacji prawnie uzasadnionego interesu [Nazwa Firmy],
+        zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).</p>
 
-      <h2>2. Як ми використовуємо вашу інформацію</h2>
-      <p>Ваша інформація допомагає нам:</p>
-      <ul>
-        <li>Надавати та покращувати наші послуги</li>
-        <li>Комунікувати з вами</li>
-        <li>Забезпечувати безпеку та запобігати шахрайству</li>
-      </ul>
+      <h2 id="rodzaj-danych">III. RODZAJ DANYCH</h2>
+      <ol>
+        <li>Właściciel zbiera informacje dotyczące osób fizycznych dokonujących czynności prawnej niezwiązanej
+          bezpośrednio z ich działalnością, osób fizycznych prowadzących we własnym imieniu działalność gospodarczą lub
+          zawodową oraz osób fizycznych reprezentujących osoby prawne lub jednostki organizacyjne niebędące osobami
+          prawnymi, którym ustawa przyznaje zdolność prawną, prowadzące we własnym imieniu działalność gospodarczą lub
+          zawodową, zwanych dalej łącznie Klientami.</li>
+        <li>Dane osobowe Klientów są zbierane w przypadku:
+          <ol type="a">
+            <li>korzystania z usługi formularza kontaktowego na internet stronie <a
+                href="legalexpert.website">legalexpert.website</a> w celu wykonania umowy świadczonej drogą
+              elektroniczną. Podstawa prawna: niezbędność do wykonania umowy o
+              świadczenie usługi formularza kontaktowego (art. 6 ust. 1 lit. b RODO);</li>
+          </ol>
+        </li>
+        <li>W przypadku skorzystania z usługi formularza kontaktowego, Klient podaje następujące dane:
+          <ol type="a">
+            <li>adres e-mail;</li>
+            <li>imię i nazwisko;</li>
+            <li>numer telefonu.</li>
+          </ol>
+        </li>
+        <li>
+          Podczas korzystania ze Strony Internetowej mogą być pobierane dodatkowe informacje, w szczególności: adres IP
+          przypisany do komputera Klienta lub zewnętrzny adres IP dostawcy Internetu, nazwa domeny, rodzaj przeglądarki,
+          czas dostępu, typ systemu operacyjnego.
+        </li>
+        <li>
+          Od Klientów mogą być także gromadzone dane nawigacyjne, w tym informacje o linkach i odnośnikach, w które
+          zdecydują się kliknąć lub innych czynnościach, podejmowanych na naszej stronie Internetowej. Podstawa prawna -
+          prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO), polegający na ułatwieniu korzystania z usług
+          świadczonych drogą elektroniczną oraz na poprawie funkcjonalności tych usług.
+        </li>
+        <li>
+          Przekazanie danych osobowych do Właściciel jest dobrowolne, w związku z świadczeniem usług za pośrednictwem
+          strony internetowej <a href="legalexpert.website">legalexpert.website</a>.
+        </li>
+      </ol>
 
-      <a href="#" class="btn-primary">Прийняти всі політики</a><br />
-      <a href="index.html" class="back-link">← Повернутися на головну</a>
-    </main>
-  </body>
+      <h2>IV. PODSTAWA PRAWNA PRZETWARZANIA DANYCH OSOBOWYCH</h2>
+      <ol>
+        <li>
+          Przetwarzanie danych osobowych odbywa się zgodnie z ogólnym rozporządzeniem o ochronie danych osobowych (RODO)
+          oraz obowiązującymi przepisami prawa dotyczącymi ochrony danych osobowych. Przetwarzanie danych osobowych
+          odbywa się zgodnie z przepisami Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27
+          kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie
+          swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (Ogólne Rozporządzenie o Ochronie Danych)
+          z dnia 27 kwietnia 2016 r. (Dz.Urz.UE.L Nr 119), zwanego dalej RODO, z uwzględnieniem przepisów ustawy o
+          świadczeniu usług drogą elektroniczną oraz innych powszechnie obowiązujących przepisów prawa.
+        </li>
+        <li>Zgodnej z art. 6 RODO podstawą prawną przetwarzania danych osobowych będzie:
+          <ol type="a">
+            <li>zgoda osoby, której dane dotyczą, na przetwarzanie jej danych osobowych w określonym celu;</li>
+            <li>niezbędność przetwarzania do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub
+              podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy;</li>
+            <li>niezbędność przetwarzania do wypełnienia obowiązku prawnego ciążącego na Administratorze.</li>
+          </ol>
+        </li>
+      </ol>
+      <p>Państwa dane osobowe przetwarzane na podstawie udzielonej zgody będą przetwarzane do czasu jej cofnięcia
+        lub ustania celu dla jakiego dane zostały zgromadzone. Udzielona zgoda może być w każdym czasie cofnięta bez
+        wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>
+
+      <h2>V. PRAWA PRZYSŁUGUJĄCE UŻYTKOWNIKOWI</h2>
+      <ol>
+        <li>Użytkownik może w każdej chwili zażądać od administratora informacji o zakresie przetwarzania danych
+          osobowych.</li>
+        <li>Użytkownik może w każdej chwili zażądać poprawienia bądź sprostowania swoich danych osobowych. </li>
+        <li>Użytkownik może w każdej chwili wycofać swoją zgodę na przetwarzanie jego danych osobowych, bez podawania
+          przyczyny. Żądanie nieprzetwarzania danych może dotyczyć wskazanego przez Użytkownika konkretnego celu
+          przetwarzania np. wycofanie zgody na otrzymywanie informacji handlowych bądź dotyczyć wszystkich celów
+          przetwarzania danych. Wycofanie zgody co do wszystkich celów przetwarzania spowoduje, że wszystkie dane
+          osobowe przetwarzone przez administratora Użytkownika zostaną usunięte. Wycofanie zgody nie wpłynie na już
+          dokonane czynności.</li>
+        <li>Użytkownik może w każdej chwili żądać, bez podawania przyczyny, aby administrator usunął Jego dane. Żądanie
+          usunięcia danych nie wpłynie na dotychczas dokonane czynności. Usunięcie danych oznacza usunięcie wszystkich
+          zapisanych i przetwarzanych do tej pory przez administratora danych osobowych.</li>
+        <li>Użytkownik może w każdej chwili wyrazić sprzeciw przeciwko przetwarzaniu danych osobowych, zarówno w
+          zakresie wszystkich przetwarzanych przez administratora danych osobowych Użytkownika, jak również jedynie w
+          ograniczonym zakresie np. co do przetwarzania danych w konkretnie wskazanym celu. Sprzeciw nie wpłynie na
+          dotychczas dokonane czynności. Wniesienie sprzeciwu spowoduje usunięcie wszystkich zapisanych i przetwarzonych
+          do tej pory, przez administratora, danych osobowych.</li>
+        <li>Użytkownik może zażądać ograniczenia przetwarzania danych osobowych, czy to przez określony czas, czy też
+          bez ograniczenia czasowego, ale w określonym zakresie, co administrator będzie obowiązany spełnić. Żądanie to
+          nie wpłynie na dotychczas dokonane czynności.</li>
+        <li>Użytkownik może zażądać, aby administrator przekazał innemu podmiotowi, przetwarzane dane osobowe
+          Użytkownika. Powinien w tym celu napisać prośbę do administratora, wskazując, jakiemu podmiotowi (nazwa,
+          adres) należy przekazać dane osobowe Użytkownika oraz jakie konkretnie dane Użytkownik życzy sobie, żeby
+          administrator przekazał. Po potwierdzeniu przez Użytkownika swojego życzenia, administrator przekaże, w formie
+          elektronicznej, wskazanemu podmiotowi, dane osobowe Użytkownika. Potwierdzenie przez Użytkownika żądania jest
+          niezbędne z uwagi na bezpieczeństwo danych osobowych Użytkownika oraz uzyskanie pewności, że żądanie pochodzi
+          od osoby uprawnionej.</li>
+        <li>Administrator informuje Użytkownika o podjętych działaniach, przed upływem miesiąca od otrzymania jednego z
+          żądań wymienionych w poprzednich punktach.</li>
+      </ol>
+      <h2> VI. PRZECHOWYWANIE DANYCH OSOBOWYCH.
+        POWIERZENIE PRZETWARZANIA DANYCH INNYM PODMIOTOM
+      </h2>
+
+      <ol>
+        <li>Dane osobowe Klienta są przekazywane wyłącznie administratorowi i są przez niego wykorzystywane w ramach
+          funkcjonowania strony internetowej.</li>
+        <li>Podmioty przetwarzające. Administrator może powierzyć przetwarzanie danych osobowych pracownikom, którzy są
+          oficjalnie zatrudnieni przez Administratora i którzy przetwarzają dane osobowe wyłącznie w imieniu
+          Administratora oraz w ramach uprawnień i kompetencji przekazanych przez Administratora w celu wykonania
+          określonych działań.</li>
+        <li>Dane osobowe Klientów przechowywane są:
+          <ol type="a">
+            <li>W przypadku, gdy podstawą przetwarzania danych osobowych jest zgoda wówczas dane osobowe Klienta
+              przetwarzane są przez Właściciel tak długo, aż zgoda nie zostanie odwołana, a po odwołaniu zgody przez
+              okres czasu odpowiadający okresowi przedawnienia roszczeń jakie może ponosić Właściciel i jakie mogą być
+              podnoszone wobec niego. Jeżeli przepis szczególny nie stanowi inaczej, termin przedawnienia wynosi lat
+              sześć, a dla roszczeń o świadczenia okresowe oraz roszczeń związanych z prowadzeniem działalności
+              gospodarczej - trzy lata.</li>
+            <li>W przypadku, gdy podstawą przetwarzania danych jest wykonanie umowy, wówczas dane osobowe Klienta
+              przetwarzane są przez Właściciel tak długo, jak jest to niezbędne do wykonania umowy, a po tym czasie
+              przez okres odpowiadający okresowi przedawnienia roszczeń. Jeżeli przepis szczególny nie stanowi inaczej,
+              termin przedawnienia wynosi lat sześć, a dla roszczeń o świadczenia okresowe oraz roszczeń związanych z
+              prowadzeniem działalności gospodarczej - trzy lata.</li>
+          </ol>
+        </li>
+        <li>
+          Bezpieczeństwo i przechowywanie informacji
+          <div>
+            <p>4.1 Właściciel zapewnia bezpieczeństwo danych osobowych dzięki odpowiednim środkom technicznym i
+              organizacyjnym, mającym na celu zapobieżenie bezprawnemu przetwarzaniu danych oraz ich przypadkowej
+              utracie, zniszczeniu oraz uszkodzeniu. Wdrożone zostały środki mające na celu ochronę przed nieuprawnionym
+              dostępem, utratą, zmianą lub niezgodnym wykorzystaniem danych osobowych. Wśród tych środków znajdują się
+              m.in. zabezpieczenia techniczne, regularne audyty bezpieczeństwa oraz ograniczony dostęp do danych
+              osobowych tylko dla uprawnionych pracowników.
+              <br>
+              Należy jednak pamiętać, że żadna metoda przesyłania danych przez Internet lub metoda elektronicznego
+              przechowywania danych nie jest w pełni bezpieczna. Administrator dokłada wszelkich starań, aby
+              zminimalizować ryzyko naruszenia bezpieczeństwa danych, jednak nie może zagwarantować pełnego
+              bezpieczeństwa informacji przesyłanych przez Serwis.
+            </p>
+            <p>4.2 Właściciel dokłada szczególnej staranności, żeby informacje osobowe były:</p>
+          </div>
+          <ol class="dashed">
+            <li>zgodne z prawem, rzetelne i przejrzyste,</li>
+            <li>zbierane w konkretnych i prawnie uzasadnionych celach i nieprzetwarzane dalej w sposób niezgodny z tymi
+              celami;</li>
+            <li>adekwatne, stosowne oraz ograniczone do tego, co niezbędne do celów, w których są przetwarzane;</li>
+            <li>prawidłowe i w razie potrzeby aktualniane;</li>
+            <li>przechowywane w formie umożliwiającej identyfikację osoby, której dane dotyczą, przez okres nie
+              dłuższy niż jest to niezbędne dla celów, w których dane te są przetwarzane;</li>
+            <li>przetwarzane w sposób zapewniający odpowiednie bezpieczeństwo danych osobowych; </li>
+            <li>z zachowaniem zapewnienia realizacji praw osób, których dane dotyczą;</li>
+            <li>nie transferowane bez odpowiedniej ochrony do krajów poza Europejski Obszar Gospodarczy lub organizacji
+              międzynarodowych.</li>
+          </ol>
+        </li>
+        <li>
+          Pozyskiwanie danych
+          <p>5.1 Gromadząc jakiekolwiek dane osobowe Właściciel zapisuje skąd po raz pierwszy zostały one pozyskane.
+          </p>
+          <p>
+            5.2
+            Dane osobowe są pozyskiwane poprzez:
+          </p>
+          <ol class="dashed">
+            <li>kontakt bez pośrednictwa sieci - na stronach internetowych Właściciel znajduje się numer telefonu oraz
+              adres email, pod którymi można się z nami kontaktować;</li>
+            <li>dane o ruchu oraz statystyki dotyczące częstości odwiedzin na stronach Właściciel - prowadzony jest
+              rejestr informacji na temat danych o ruchu, które są automatycznie rejestrowane przez nasz serwer, takich
+              jak adres IP użytkownika, URL odwiedzane przed wizytą na naszej stronie, URL odwiedzane po wizycie na
+              naszej stronie oraz odwiedzane strony. Gromadzone są również statystyki na temat ilości wejść na
+              stronę oraz odsłon strony. Właściciel nie jest w stanie bezpośrednio określić tożsamości
+              użytkownika na podstawie danych o ruchu oraz statystyk dotyczących korzystania ze strony.</li>
+            <li>podczas korzystania z zasobów stron internetowych zarządzanych przez Właściciel - gromadzone są
+              informacje o użytkownikach za pośrednictwem plików takich jak "cookies". Serwis może wykorzystywać pliki
+              cookies i inne podobne technologie w celu poprawy jakości świadczonych usług, personalizacji treści oraz
+              analizy ruchu na stronie. Pliki cookies są małymi plikami tekstowymi przechowywanymi na urządzeniu
+              użytkownika. Użytkownik ma możliwość zarządzania ustawieniami dotyczącymi plików cookies poprzez zmianę
+              ustawień przeglądarki internetowej.</li>
+          </ol>
+          <p>Właściciel tworzy pliki cookie podczas przeglądania strony przez użytkownika lub rejestrowania się podczas
+            korzystania z niektórych usług. Poprzez zaakceptowanie plików cookie wykorzystywanych na naszej stronie,
+            użytkownik nie udostępnia informacji osobistych, lecz pliki cookie mogą być wykorzystane do identyfikacji
+            komputera danego użytkownika. Pliki cookie dzielą się zwykle na pliki "sesji" i pliki "stałe". Użytkownik
+            może w każdej chwili wyłączyć w swojej przeglądarce opcję przyjmowania cookies, jednakże efektem
+            takiej zmiany może być utrata możliwości korzystania ze strony Właściciel. Większość przeglądarek
+            domyślnie akceptuje pliki cookie automatycznie, ale możliwe jest blokowanie lub ograniczenie niektórych
+            plików cookie przez odpowiednią konfigurację plików cookie w przeglądarce. Po zablokowaniu plików cookie,
+            niektóre funkcje na naszej stronie nie będą dostępne, a także mogą nie być wyświetlane poprawnie.</p>
+          <p>W związku z wejściem w życie z dniem 22-03-2013 przepisów wynikających z nowelizacji prawa
+            telekomunikacyjnego dotyczącej zasad korzystania z plików cookies przez serwisy internetowe (ustawa z dnia
+            16 listopada 2012 r. o zmianie ustawy – prawo telekomunikacyjne oraz niektórych innych ustaw, Dz.U. z 2012
+            r., poz. 1445) informujemy, że wyrażenie zgody na pliki cookies przez użytkownika naszej strony następuje za
+            pomocą przeglądarki. Każdy użytkownik może samodzielnie decydować na poziomie ustawienia przeglądarki czy
+            akceptuje pliki cookies.</p>
+          <p>Brak zmiany domyślnych ustawień przeglądarki umożliwiającej przetwarzanie cookies jest wyrazem świadomego
+            aktu woli użytkownika.</p>
+          <p>W przypadku, gdy Klient wybierze płatność poprzez system Przelewy24, jego dane osobowe są przekazywane w
+            zakresie niezbędnym dla realizacji płatności spółce.</p>
+        </li>
+
+        <li>
+          Dane nawigacyjne mogą być wykorzystywane w celu zapewnienia Klientom lepszej obsługi, analizy danych
+          statystycznych i dostosowania Sklepu Internetowego do preferencji Klientów, a także administrowania Sklepem
+          Internetowym.
+        </li>
+        <li>W przypadku, gdy Klient dokona subskrypcji biuletynu informacyjnego (Newsletter) na jego adres e-mail
+          Właściciel będzie wysyłać wiadomości elektroniczne zawierające informacje handlowe o promocjach i nowych
+          produktach dostępnych w Sklepie Internetowym.</li>
+        <li>W przypadku skierowania żądania Właściciel udostępnia dane osobowe uprawnionym organom państwowym, w
+          szczególności jednostkom organizacyjnym Prokuratury, Policji, Prezesowi Urzędu Ochrony Danych Osobowych,
+          Prezesowi Urzędu Ochrony Konkurencji i Konsumentów lub Prezesowi Urzędu Komunikacji Elektronicznej.</li>
+      </ol>
+
+      <h2>III. RODZAJ DANYCH</h2>
+
+      <ol>
+        <li>Strona internetowa <a href="legalexpert.website">legalexpert.website</a> używa niewielkich plików, zwanych
+          cookies. Plik cookie zwykle zawiera nazwę
+          domeny, z której pochodzi, swój "czas wygaśnięcia" oraz indywidualną, losowo wybraną liczbę identyfikującą ten
+          plik. Informacje zbierane za pomocą plików tego typu pomagają dostosowywać oferowane przez Właściciel usługi
+          do indywidualnych preferencji i rzeczywistych potrzeb osób odwiedzających stronę internetową <a
+            href="legalexpert.website">legalexpert.website</a>.
+        </li>
+        <li>
+          Właściciel wykorzystuje trzy typy plików cookies:
+          <ol type="a">
+            <li>Cookies sesyjne: po zakończeniu sesji danej przeglądarki lub wyłączeniu komputera zapisane informacje są
+              usuwane z pamięci urządzenia. Mechanizm cookies sesyjnych nie pozwala na pobieranie jakichkolwiek danych
+              osobowych ani żadnych informacji poufnych z komputerów Klientów.</li>
+            <li>Cookies trwałe: są przechowywane w pamięci urządzenia końcowego Klienta i pozostają tam do momentu ich
+              skasowania lub wygaśnięcia. Mechanizm cookies trwałych nie pozwala na pobieranie jakichkolwiek danych
+              osobowych ani żadnych informacji poufnych z komputera Klientów.</li>
+            <li>
+              „Cookies” podmiotów zewnętrznych – (ang. third parties cookies) – to informacje pochodzące np. z serwerów
+              reklamowych, serwerów firm i dostawców usług (np. wyszukiwania albo map umieszczanych na stronie)
+              współpracujących z właścicielem danej strony internetowej. Ten rodzaj cookie pozwala dostosowywać reklamy
+              – dzięki którym korzystanie ze stron internetowych może być bezpłatne – do preferencji i zwyczajów ich
+              użytkowników. Pozwalają również ocenić skuteczność działań reklamowych (np. dzięki zliczaniu, ile osób
+              kliknęło w daną reklamę i przeszło na stronę internetową reklamodawcy). Na podstawie informacji
+              pozyskanych z tych cookies można tworzyć tzw. ogólne profile użytkowników, dzięki którym zobaczą reklamy
+              dopasowane do ich potencjalnych zainteresowań. W ramach działalności Administrator korzysta z usług
+              następujących podmiotów zewnętrznych, które stosują pliki cookie (ang. third parties cookies):
+
+              <ol class="dashed">
+                <li>
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdWords
+                    – Privacy Policy</a>
+                  lub
+                  <a href="https://policies.google.com/technologies/ads" target="_blank"
+                    rel="noopener noreferrer">Advertising Technologies</a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/about/privacy" target="_blank"
+                    rel="noopener noreferrer">Facebook</a>
+                </li>
+                <li>
+                  <a href="https://www.salesmanago.pl/info/obowiazek-informacyjny.htm" target="_blank"
+                    rel="noopener noreferrer">SalesManago</a>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          Więcej informacji na temat plików cookies wspomnianych podmiotów znajduje się w ich politykach prywatności.
+        </li>
+        <li>Właściciel wykorzystuje cookies własne w celu:
+          <ol type="a">
+            <li>analiz i badań oraz audytu oglądalności, a w szczególności do tworzenia anonimowych statystyk, które
+              pomagają zrozumieć, w jaki sposób Klienci korzystają ze Strony Internetowej <a
+                href="legalexpert.website">legalexpert.website</a>, co umożliwia ulepszanie jej struktury i zawartości.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Właściciel wykorzystuje cookies zewnętrzne w celu:
+          <ol type="a">
+            <li>popularyzacji Strony Internetowej <a href="legalexpert.website">legalexpert.website</a> za pomocą
+              serwisu społecznościowego instagram.com (administrator cookies zewnętrznego: Instagram LLC., z siedzibą
+              pod adresem 1601 Willow Road, Menlo Park, CA, 94025, USA.).</li>
+            <li>popularyzacji Strony Internetowej <a href="legalexpert.website">legalexpert.website</a> za pomocą
+              serwisu społecznościowego www.linkedin.com (administrator cookies zewnętrznego: Microsoft Corporation, z
+              siedzibą pod adresem Way,. Redmond, Washington 98052-6399, USA.)</li>
+          </ol>
+        </li>
+        <li>
+          Mechanizm cookies jest bezpieczny dla komputerów Klientów Strony Internetowej <a
+            href="legalexpert.website">legalexpert.website</a>. W szczególności tą drogą nie jest możliwe przedostanie
+          się do komputerów Klientów wirusów lub innego niechcianego oprogramowania lub oprogramowania złośliwego.
+          Niemniej w swoich przeglądarkach Klienci mają możliwość ograniczenia lub wyłączenia dostępu plików cookies do
+          komputerów. W przypadku skorzystania z tej opcji korzystanie Strony Internetowej <a
+            href="legalexpert.website">legalexpert.website</a> będzie możliwe, poza funkcjami, które ze swojej natury
+          wymagają plików cookies.
+        </li>
+        <li>
+          Poniżej przedstawiamy jak można zmienić ustawienia popularnych przeglądarek internetowych w zakresie
+          stosowania plików cookies:
+          <ol type="a">
+            <li>przeglądarka Microsoft EDGE;</li>
+            <li>przeglądarka Mozilla Firefox;</li>
+            <li>przeglądarka Chrome;</li>
+            <li>przeglądarka Safari;</li>
+            <li>przeglądarka Opera.</li>
+          </ol>
+        </li>
+        <li>
+          Właściciel może gromadzić adresy IP Klientów. Adres IP to numer przydzielany komputerowi osoby odwiedzającej
+          Stronę Internetową <a href="legalexpert.website">legalexpert.website</a> przez dostawcę usług internetowych.
+          Numer IP umożliwia dostęp do Internetu. W większości przypadków jest przypisywany komputerowi dynamicznie, tj.
+          zmienia się przy każdym połączeniu z Internetem i z tego powodu traktowany jest powszechnie, jako nieosobista
+          informacja identyfikująca. Adres IP jest wykorzystywany przez Właściciel przy diagnozowaniu problemów
+          technicznych z serwerem, tworzeniu analiz statystycznych (np. określeniu, z jakich regionów notujemy najwięcej
+          odwiedzin), jako informacja przydatna przy administrowaniu i udoskonalaniu Strony Internetowej <a
+            href="legalexpert.website">legalexpert.website</a>, a także w celach bezpieczeństwa oraz ewentualnej
+          identyfikacji obciążających serwer, niepożądanych automatycznych programów do przeglądania treści Strony
+          Internetowej <a href="legalexpert.website">legalexpert.website</a>.
+        </li>
+        <li>Strona Internetowa zawiera linki i odnośniki do innych stron internetowych. Właściciel nie ponosi
+          odpowiedzialności za zasady ochrony prywatności na nich obowiązujące.</li>
+        <li>Użytkownik może zmienić preferencje, dotyczące akceptacji plików cookies lub zmienić przeglądarkę, aby móc
+          otrzymać za każdym razem stosowne powiadomienie, gdy funkcja cookies jest ustawiona. Aby zmienić ustawienia
+          akceptacji cookies, należy dostosować ustawienia w przeglądarce.</li>
+        <li>Warto pamiętać, że blokowanie lub usuwanie plików cookies może uniemożliwić pełne korzystanie ze strony
+          internetowej.</li>
+        <li> Pliki cookies będą wykorzystywane dla:
+
+          <ol class="dashed">
+            <li>Przesłania informacji przez Klienta do formularza kontaktowego;</li>
+            <li>Rejestrowanie informacji z urządzenia Użytkownika, w tym: pliki cookies, adres IP i informacje o
+              używanej przeglądarce, w celu możliwości diagnozowania problemów, administrowania i śledzenia Użytkowania
+              witryny;</li>
+            <li>Dostosowywania elementów układu szaty graficznej lub zawartości strony internetowej;</li>
+            <li>Zbierania informacji statystycznych o tym, jak Użytkownik korzysta ze strony, w celu możliwości
+              ulepszania witryny i stwierdzenia, które zakresy strony internetowej są najbardziej popularne dla
+              Użytkowników.</li>
+          </ol>
+        </li>
+      </ol>
+      <h2>VIII. ZMIANY POLITYKI PRYWATNOŚCI </h2>
+      <ol>
+        <li>Polityka Prywatności może ulec zmianie, o czym Właściciel poinformuje Klientów z wyprzedzeniem 7 dni.</li>
+        <li>Pytania związane z Polityką Prywatności prosimy kierować na adres: legalexpertukr@gmail.com</li>
+      </ol>
+      <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+    </div>
+  </main>
+</body>
+
 </html>

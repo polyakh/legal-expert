@@ -2,31 +2,58 @@
 <html lang="uk">
 
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <!-- Favicon for browser tabs -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/icons/favicon-legalexpert-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/icons/favicon-legalexpert-16x16.png">
   <link rel="shortcut icon" href="/src/assets/icons/favicon.ico">
   <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="/src/assets/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/src/assets/icons/apple-touch-icon-legalexpert.png">
   <!-- Android Icons (for PWA or homescreen) -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/src/assets/icons/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/icons/android-chrome-legalexpert-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/src/assets/icons/android-chrome-legalexpert-512x512.png">
   <!-- Web App Manifest -->
   <link rel="manifest" href="/src/site.webmanifest">
+  <link rel="preload" as="image" href="/src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-900.webp"
+    imagesrcset="
+    /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-300.webp 300w,
+    /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-600.webp 600w,
+    /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-900.webp 900w,
+    /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-1200.webp 1200w"
+    imagesizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="NP Legal - International law expertise between Poland and Ukraine. Professional legal services for businesses and individuals.">
+    content="Legal Expert – українська юридична фірма в Польщі. Консультації, побит, реєстрація бізнесу, торгові марки, RODO, договори. Досвід 15+ років.">
   <meta name="theme-color" content="#1B1464">
-  <title>Legal Expert - Международные юридические услуги, предоставляемые в Польше</title>
+  <title>Legal Expert – Юридичні послуги в Польщі для українців | Реєстрація бізнесу, побит, торгові марки</title>
   <link rel="preload" href="/src/fonts/playfairdisplay-variablefont_wght-webfont.woff2" as="font" type="font/woff2"
     crossorigin>
   <link rel="preload" href="/src/fonts/opensans-variablefont_wdthwght-webfont.woff2" as="font" type="font/woff2"
     crossorigin>
-  <link rel="stylesheet" href="/src/styles/main.css">
 
   <style>
+    /* ===== TABLE OF CONTENTS =====
+1. CSS Variables (Root)
+2. Font Faces
+3. Reset & Base Styles
+4. Typography
+5. Accessibility
+6. Layout & Container
+7. Navigation
+8. Buttons
+9. Hero Section
+10. Services Section
+11. Experience Section
+12. Contact Section
+13. Footer Section
+14. Cookie Banner & Modal
+15. Form Elements
+16. Read More Components
+17. Print Styles
+===============================*/
+
+    /* ===== 1. CSS Variables (Root) ===== */
     :root {
       /* Typography */
       --font-heading: 'Playfair Display', Georgia, serif;
@@ -56,14 +83,12 @@
       --color-text: #FFFFFF;
       --color-text-secondary: #CBD5E0;
       --color-link-hover: #FFD700;
-
       --color-placeholder: rgba(255, 255, 255, 0.6);
 
       /* Feedback colors */
       --color-success: #28a745;
-      /* Bootstrap green, or choose your brand-specific green */
       --color-error: #dc3545;
-      /* Bootstrap red, or use a matching tone */
+      --color-feedback-text: var(--color-white);
 
       /* UI Elements */
       --focus-ring-color: #4D90FE;
@@ -116,42 +141,7 @@
       --z-skiplink: 1200;
     }
 
-    /* Target all browser placeholder pseudo-elements */
-    .form-input::placeholder {
-      color: var(--color-placeholder);
-      opacity: 1;
-      /* Some browsers apply their own opacity, this ensures consistency */
-    }
-
-    /* For Internet Explorer */
-    .form-input:-ms-input-placeholder {
-      color: var(--color-placeholder);
-    }
-
-    /* For Microsoft Edge */
-    .form-input::-ms-input-placeholder {
-      color: var(--color-placeholder);
-    }
-
-    /* For WebKit browsers like Chrome/Safari/Opera */
-    .form-input::-webkit-input-placeholder {
-      color: var(--color-placeholder);
-    }
-
-    /* For Firefox */
-    .form-input::-moz-placeholder {
-      color: var(--color-placeholder);
-      opacity: 1;
-      /* Firefox has a default opacity of 0.54 */
-    }
-
-    /* Optional: improve focus state by adding a subtle transition */
-    .form-input:focus::placeholder {
-      opacity: 0.8;
-      transition: opacity 0.2s ease;
-    }
-
-    /* ===== 1. Font Faces ===== */
+    /* ===== 2. Font Faces ===== */
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
@@ -168,7 +158,7 @@
       src: url(/src/fonts/opensans-variablefont_wdthwght-webfont.woff2) format('woff');
     }
 
-    /* ===== 2. Reset & Base Styles ===== */
+    /* ===== 3. Reset & Base Styles ===== */
     *,
     *::before,
     *::after {
@@ -192,7 +182,7 @@
       color: var(--color-text);
     }
 
-    /* ===== 3. Typography ===== */
+    /* ===== 4. Typography ===== */
     h1,
     h2,
     h3,
@@ -209,7 +199,7 @@
       font-family: var(--font-body);
     }
 
-    /* ===== 4. Accessibility ===== */
+    /* ===== 5. Accessibility ===== */
     :focus {
       outline: var(--focus-ring-width) solid var(--focus-ring-color);
       outline-offset: var(--outline-offset);
@@ -246,7 +236,7 @@
       border-width: 0;
     }
 
-    /* ===== 5. Layout & Container ===== */
+    /* ===== 6. Layout & Container ===== */
     .container {
       width: 100%;
       max-width: var(--container-max-width);
@@ -254,9 +244,9 @@
       padding: 0 1rem;
     }
 
-    /* ===== 6. Navigation ===== */
+    /* ===== 7. Navigation ===== */
     .nav {
-      background-color: var(--color-dark-blue);
+      background-color: var(--color-navy);
       color: var(--color-text);
       padding: 1rem;
       position: fixed;
@@ -298,6 +288,12 @@
       width: 2rem;
     }
 
+    .logo-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
     .brand-name {
       font-size: 1.25rem;
       font-weight: bold;
@@ -305,12 +301,13 @@
 
     .nav-links {
       display: none;
+      /* Hidden on mobile, shown on desktop via media query */
     }
 
     .nav-links a {
       color: var(--color-text);
       text-decoration: none;
-      margin: 0 1.5rem;
+      margin: 0 0.5rem;
       padding: 0.5rem;
       transition: color var(--transition-medium) var(--transition-ease);
     }
@@ -330,7 +327,141 @@
       cursor: pointer;
     }
 
-    /* ===== 7. Buttons ===== */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-navy);
+      padding: var(--spacing-4);
+      z-index: var(--z-modal);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .mobile-nav[aria-expanded="true"] {
+      transform: translateY(0);
+    }
+
+    .mobile-nav[hidden] {
+      display: none;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--spacing-6) 0 0;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: var(--spacing-2);
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: var(--spacing-2);
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: var(--font-size-lg);
+      font-weight: 500;
+      text-align: center;
+      transition: background-color var(--transition-medium) var(--transition-ease);
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:focus {
+      background-color: var(--color-navy);
+      color: var(--color-light-gold);
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: var(--spacing-2);
+      right: var(--spacing-2);
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--color-white);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Style for mobile menu close button */
+    .mobile-nav-close {
+      position: absolute;
+      top: var(--spacing-2);
+      right: var(--spacing-2);
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--color-white);
+      cursor: pointer;
+      line-height: 0.8;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+      z-index: 10;
+    }
+
+    .mobile-nav-close:hover,
+    .mobile-nav-close:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--color-gold);
+    }
+
+    /* Improved mobile menu animation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Make it full height */
+      background-color: var(--color-navy);
+      padding: var(--spacing-4);
+      z-index: var(--z-modal);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+      overflow-y: auto;
+      /* Allow scrolling for tall menus */
+    }
+
+    /* Overlay to prevent scrolling and indicate menu is open */
+    .mobile-nav::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* background-color: rgba(0, 0, 0, 0.5); */
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-nav[aria-expanded="true"]::before {
+      opacity: 1;
+    }
+
+    /* Ensure the x is visible */
+    .mobile-nav[aria-expanded="true"] .mobile-nav-close {
+      display: flex;
+    }
+
+    /* Media queries to ensure button is accessible on all devices */
+    @media (max-width: 480px) {
+      .mobile-nav-close {
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+
+    /* ===== 8. Buttons ===== */
     .btn {
       padding: 0.5rem 1rem;
       border-radius: var(--border-radius-base);
@@ -354,7 +485,7 @@
       color: var(--color-navy);
     }
 
-    /* ===== 8. Hero Section ===== */
+    /* ===== 9. Hero Section ===== */
     .hero-section {
       padding: 2rem 0 0;
     }
@@ -370,7 +501,7 @@
       font-size: clamp(1.875rem, 5vw, 2.4rem);
       font-weight: 700;
       line-height: var(--line-height-tight);
-      margin-bottom: var(--spacing-6);
+      margin-bottom: var(--spacing-3);
     }
 
     .hero-description {
@@ -389,21 +520,22 @@
     .hero__img {
       width: 100%;
       object-fit: cover;
-      height: var(--hero-img-height);
-      aspect-ratio: 16/9;
+      height: var(--hero-img-height, 300px);
+      aspect-ratio: 2/3;
+      border-radius: 6px;
     }
 
-    /* ===== 9. Services Section ===== */
+    /* ===== 10. Services Section ===== */
     .services-section {
-      padding: var(--spacing-16) 0;
+      padding: var(--spacing-12) 0;
       background-color: var(--color-white);
     }
 
     .services-heading {
-      font-size: var(--font-size-4xl);
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
       color: var(--color-navy);
       text-align: center;
-      margin-bottom: var(--spacing-12);
+      margin-bottom: var(--spacing-6);
       line-height: var(--line-height-tight);
     }
 
@@ -447,8 +579,7 @@
     }
 
     .large-icon,
-    .larg-icon,
-    .icon-larg {
+    .larg-icon {
       width: 48px;
       height: 48px;
     }
@@ -482,7 +613,650 @@
       text-decoration: underline;
     }
 
-    /* ===== 10. Read More Components ===== */
+    /* ===== 11. Experience Section ===== */
+    .experience-section {
+      padding: var(--spacing-12) 0;
+      background-color: #f9fafb;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+      align-items: center;
+    }
+
+    .experience-image {
+      border-radius: var(--border-radius-base);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .lawyer-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+
+    .experience-content {
+      padding: var(--spacing-4);
+    }
+
+    .experience-title {
+      color: var(--color-navy);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-4);
+      line-height: var(--line-height-tight);
+    }
+
+    .experience-description {
+      color: var(--color-dark-blue);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-4);
+      margin-top: var(--spacing-8);
+    }
+
+    .stat-card {
+      background-color: var(--color-white);
+      padding: var(--spacing-6);
+      border-radius: var(--border-radius-base);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .stat-number {
+      color: var(--color-gold);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--color-dark-blue);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+
+    /* ===== 12. Contact Section ===== */
+    .contact-section {
+      padding: var(--spacing-12) 0;
+      background-color: #0f0a3c;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+
+    .contact-title {
+      color: var(--color-text);
+      font-size: var(--font-size-4xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .contact-description {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-6);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+      color: var(--color-text);
+      font-size: var(--font-size-base);
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--color-gold);
+    }
+
+    .contact-form-wrapper {
+      background-color: var(--color-dark-blue);
+      border-radius: var(--border-radius-base);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== 13. Footer Section ===== */
+    .footer {
+      background-color: var(--color-navy);
+      padding: var(--spacing-12) 0;
+      border-top: var(--border-width-base) solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+
+    .brand-logo {
+      color: var(--color-gold);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .brand-description {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      max-width: 300px;
+      margin-top: 0.6rem;
+    }
+
+    .footer-title {
+      color: var(--color-text);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .footer-link {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: var(--font-size-base);
+      transition: color var(--transition-fast) var(--transition-ease);
+    }
+
+    .footer-link:hover,
+    .footer-link:focus {
+      color: var(--color-gold);
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: var(--spacing-4);
+    }
+
+    .social-link {
+      color: var(--color-text-secondary);
+      transition: color var(--transition-fast) var(--transition-ease);
+    }
+
+    .social-link:hover,
+    .social-link:focus {
+      color: var(--color-gold);
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .copyright {
+      margin-top: var(--spacing-8);
+      padding-top: var(--spacing-6);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+    }
+
+    /* ===== 14. Cookie Banner & Modal ===== */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-xl);
+      z-index: var(--z-toast);
+      padding: var(--spacing-4);
+      border-top: var(--border-width-base) solid var(--color-gold);
+    }
+
+    .cookie-content {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+      align-items: center;
+      padding: 0 var(--spacing-4);
+    }
+
+    .cookie-text {
+      color: var(--color-navy);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      text-align: center;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: var(--spacing-4);
+    }
+
+    .cookie-button {
+      padding: var(--spacing-2) var(--spacing-8);
+      border-radius: var(--border-radius-base);
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast) var(--transition-ease);
+      min-height: var(--touch-target-size);
+      min-width: 100px;
+    }
+
+    .decline-button {
+      background-color: transparent;
+      color: var(--color-navy);
+      border: var(--border-width-base) solid var(--color-navy);
+    }
+
+    .decline-button:hover,
+    .decline-button:focus {
+      background-color: var(--color-navy);
+      color: var(--color-white);
+    }
+
+    /* Cookie Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: var(--z-modal);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cookie-modal {
+      background-color: white;
+      border-radius: var(--border-radius-base);
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      color: var(--color-black);
+    }
+
+    .modal-header {
+      padding: var(--spacing-4) var(--spacing-6);
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-navy);
+      color: var(--color-white);
+      border-top-left-radius: var(--border-radius-base);
+      border-top-right-radius: var(--border-radius-base);
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--color-white);
+      margin: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      color: var(--color-white);
+      transition: color 0.2s ease;
+    }
+
+    .close-btn:hover {
+      color: var(--color-light-gold);
+    }
+
+    .modal-body {
+      padding: var(--spacing-6);
+    }
+
+    .modal-text {
+      margin-bottom: var(--spacing-6);
+      color: #333;
+    }
+
+    .consent-category {
+      margin-bottom: var(--spacing-4);
+      border: 1px solid #eee;
+      border-radius: var(--border-radius-base);
+    }
+
+    .category-header {
+      padding: var(--spacing-4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background-color: #f9f9f9;
+      position: relative;
+      border-radius: var(--border-radius-base);
+    }
+
+    .category-title {
+      font-weight: 600;
+      font-size: var(--font-size-lg);
+      color: #333;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .category-title::before {
+      content: "›";
+      display: inline-block;
+      margin-right: var(--spacing-2);
+      transition: transform 0.3s ease;
+    }
+
+    .category-content {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: var(--spacing-4);
+      padding-right: var(--spacing-4);
+      overflow: hidden;
+      transition:
+        max-height 0.3s ease,
+        padding-top 0.3s ease,
+        padding-bottom 0.3s ease;
+    }
+
+    .consent-category.expanded .category-content {
+      max-height: 300px;
+      padding-top: var(--spacing-4);
+      padding-bottom: var(--spacing-4);
+    }
+
+
+    .consent-category.expanded .category-title::before {
+      transform: rotate(90deg);
+    }
+
+    .status-label {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: #43a047;
+      margin-left: auto;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+      margin-left: var(--spacing-4);
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: var(--color-gold);
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px var(--color-gold);
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(30px);
+    }
+
+    .modal-footer {
+      padding: var(--spacing-4) var(--spacing-6);
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--spacing-2);
+      background-color: #f9f9f9;
+      border-bottom-left-radius: var(--border-radius-base);
+      border-bottom-right-radius: var(--border-radius-base);
+    }
+
+    .footer-button {
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--border-radius-base);
+      font-weight: 500;
+      cursor: pointer;
+      min-width: 120px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-reject {
+      background-color: #f2f2f2;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .btn-reject:hover {
+      background-color: #e0e0e0;
+    }
+
+    .btn-save {
+      background-color: var(--color-navy);
+      color: white;
+      border: none;
+    }
+
+    .btn-save:hover {
+      background-color: var(--color-dark-blue);
+    }
+
+    .btn-accept {
+      background-color: var(--color-gold);
+      color: var(--color-navy);
+      border: none;
+    }
+
+    .btn-accept:hover {
+      background-color: var(--color-light-gold);
+    }
+
+    .show-more-btn {
+      color: var(--color-light-blue);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .show-more-btn:hover {
+      text-decoration: underline;
+      color: var(--color-navy);
+    }
+
+    /* ===== 15. Form Elements ===== */
+    .form-input {
+      width: 100%;
+      padding: var(--spacing-3);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: var(--border-width-base) solid transparent;
+      border-radius: var(--border-radius-base);
+      color: var(--color-text);
+      font-size: var(--font-size-base);
+      transition: border-color var(--transition-fast) var(--transition-ease);
+    }
+
+    .form-input::placeholder {
+      color: var(--color-placeholder);
+      opacity: 1;
+    }
+
+    .form-input:-ms-input-placeholder {
+      color: var(--color-placeholder);
+    }
+
+    .form-input::-ms-input-placeholder {
+      color: var(--color-placeholder);
+    }
+
+    .form-input::-webkit-input-placeholder {
+      color: var(--color-placeholder);
+    }
+
+    .form-input::-moz-placeholder {
+      color: var(--color-placeholder);
+      opacity: 1;
+    }
+
+    .form-input:focus::placeholder {
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Form feedback messages */
+    .form-feedback {
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .form-feedback.error-msg {
+      background-color: var(--color-error);
+      color: var(--color-feedback-text);
+      border-left: 3px solid #dc3545;
+    }
+
+    .form-feedback.success-msg {
+      background-color: var(--color-success);
+      color: var(--color-feedback-text);
+      border-left: 3px solid #28a745;
+    }
+
+    /* Privacy consent styles */
+    .privacy-consent {
+      margin: 20px 0;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] {
+      margin-top: 0.3em;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .checkbox-wrapper label {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .checkbox-wrapper a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+
+    .checkbox-wrapper a:hover {
+      text-decoration: none;
+    }
+
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      min-height: 1rem;
+    }
+
+    /* ===== 16. Read More Components ===== */
     /* Hero Read More */
     .read-more-block {
       color: var(--color-text);
@@ -541,7 +1315,7 @@
     .read-more-block__collapse-btn:hover,
     .service-read-more__expand-btn:hover,
     .service-read-more__collapse-btn:hover {
-      background-color: var(--color-gold);
+      /* background-color: var(--color-gold); */
       color: var(--color-navy);
     }
 
@@ -655,67 +1429,7 @@
       display: none;
     }
 
-    /* ===== 11. Media Queries ===== */
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .consultation-btn {
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .logo-img {
-        height: 32px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .hero {
-        display: none;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      .service-card {
-        transform: none !important;
-      }
-    }
-
-    @media (prefers-contrast: more) {
-      :root {
-        --color-navy: #000000;
-        --color-gold: #FFD700;
-        --color-dark-blue: #000033;
-        --color-text: #FFFFFF;
-      }
-    }
-
+    /* ===== 17. Print Styles ===== */
     @media print {
       body {
         background: white;
@@ -746,709 +1460,654 @@
       .service-icon {
         display: none;
       }
-    }
 
-    /* Styles for the feedback message element */
-.form-feedback {
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  transition: opacity 0.3s ease;
-}
+      .experience-section {
+        background: none;
+      }
 
-.form-feedback.error-msg {
-  background-color: var(--color-error);
-  color: var(--color-feedback-text);
-  border-left: 3px solid #dc3545;
-}
+      .stat-card {
+        border: 1px solid #000;
+        background: none;
+      }
 
-.form-feedback.success-msg {
-  background-color: var(--color-success);
-  color: var(--color-feedback-text);
-  border-left: 3px solid #28a745;
-}
+      .stat-number,
+      .stat-label {
+        color: #000;
+      }
 
-/* Ensure the feedback is positioned correctly */
-#contact-form {
-  display: flex;
-  flex-direction: column;
-}
+      .contact-section {
+        background: none;
+        padding: var(--spacing-8) 0;
+      }
 
-/* Add some space before the submit button */
-.submit-button {
-  margin-top: 0.5rem;
-}
+      .contact-form-wrapper {
+        border: 1px solid #000;
+        background: none;
+      }
 
-    .privacy-consent {
-      margin: 20px 0;
-    }
+      .form-input {
+        border: 1px solid #000;
+        background: none;
+      }
 
-    .checkbox-wrapper {
-      display: flex;
-      align-items: flex-start;
-    }
+      .contact-icon {
+        color: #000;
+      }
 
-    .checkbox-wrapper input[type="checkbox"] {
-      margin-top: 0.25em;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
+      .footer {
+        background: none;
+        border-top: 1px solid #000;
+      }
 
-    .checkbox-wrapper label {
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+      .footer-link,
+      .social-link,
+      .brand-logo {
+        color: #000;
+      }
 
-    .checkbox-wrapper a {
-      color: #0066cc;
-      text-decoration: underline;
-    }
+      .social-links {
+        display: none;
+      }
 
-    .checkbox-wrapper a:hover {
-      text-decoration: none;
-    }
-
-    .error-message {
-      color: #d32f2f;
-      font-size: 0.8rem;
-      margin-top: 4px;
-      min-height: 1rem;
-    }
-
-    .copyright {
-      margin-top: var(--spacing-8);
-      /* 2rem */
-      padding-top: var(--spacing-6);
-      /* 1.5rem */
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      font-size: var(--font-size-sm);
-      /* 0.875rem */
-      color: var(--color-text-secondary);
-      /* soft gray text */
-    }
-
-    .logo-link {
-      display: block;
-      text-decoration: none;
-    }
-
-    .logo-image {
-      width: 240px;
-      height: auto;
-      max-height: 80px;
-      /* Control maximum height */
-    }
-
-    @media (max-width: 992px) {
-      .logo-image {
-        width: 200px;
+      .cookie-banner {
+        display: none !important;
       }
     }
 
-    @media (max-width: 768px) {
-      .logo-image {
+
+    /* ==============================================
+   RESPONSIVE STYLES - Enhanced Version
+   Organized by component for easier maintenance
+   Follows a mobile-first approach
+   ============================================== */
+
+    /* ===== 1. GLOBAL RESPONSIVE UTILITIES ===== */
+    .hide-on-mobile {
+      display: none;
+    }
+
+    .show-on-mobile-only {
+      display: block;
+    }
+
+    /* ===== 2. TYPOGRAPHY RESPONSIVE ADJUSTMENTS ===== */
+    html {
+      font-size: 14px;
+      /* Base size for mobile */
+    }
+
+    /* Fluid typography scaling */
+    @media (min-width: 768px) {
+      html {
+        font-size: 16px;
+      }
+
+      .services-heading {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        margin-bottom: var(--spacing-8);
+        padding: 0 var(--spacing-4);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      html {
+        font-size: 18px;
+      }
+
+      .services-heading {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--spacing-12);
+        padding: 0;
+      }
+    }
+
+    /* ===== 3. LAYOUT & CONTAINER ===== */
+    .container {
+      padding: 0 var(--spacing-4);
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 var(--spacing-6);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        padding: 0 var(--spacing-8);
+      }
+    }
+
+    /* ===== 4. NAVIGATION RESPONSIVE STYLES ===== */
+    /* Mobile navigation (base styles) */
+    .nav {
+      padding: 0.75rem var(--spacing-4);
+      height: 60px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+
+    /* Tablet navigation */
+    @media (min-width: 768px) {
+      .nav {
+        padding: 1rem var(--spacing-6);
+        height: 70px;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .consultation-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Desktop navigation */
+    @media (min-width: 1024px) {
+      .nav {
+        padding: 1rem var(--spacing-8);
+        height: 80px;
+      }
+
+      .nav-links a {
+        margin: 0 var(--spacing-3);
+      }
+    }
+
+    /* Logo responsive sizing */
+    .logo-img {
+      width: 140px;
+      height: auto;
+      transition: width 0.3s ease;
+    }
+
+    @media (min-width: 480px) {
+      .logo-img {
         width: 160px;
       }
     }
 
-    @media (max-width: 480px) {
-      .logo-image {
-        width: 140px;
+    @media (min-width: 768px) {
+      .logo-img {
+        width: 180px;
       }
     }
 
-
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: var(--color-dark-blue);
-      padding: var(--spacing-4);
-      z-index: var(--z-modal);
-      transform: translateY(-100%);
-      transition: transform 0.3s ease-in-out;
+    @media (min-width: 992px) {
+      .logo-img {
+        width: 220px;
+      }
     }
 
-    .mobile-nav[aria-expanded="true"] {
-      transform: translateY(0);
+    /* ===== 5. HERO SECTION RESPONSIVE ===== */
+    .hero-section {
+      padding-top: calc(60px + var(--spacing-6));
+      /* Mobile nav height + spacing */
     }
 
-    .mobile-nav[hidden] {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+    }
+
+    .hero {
       display: none;
+      /* Hide on mobile */
     }
 
-    .mobile-nav-list {
-      list-style: none;
-      padding: 0;
-      margin: var(--spacing-6) 0 0;
+    .hero-heading {
+      font-size: 1.75rem;
     }
 
-    .mobile-nav-item {
-      margin-bottom: var(--spacing-2);
+    @media (min-width: 768px) {
+      .hero-section {
+        padding-top: calc(70px + var(--spacing-8));
+        /* Tablet nav height + spacing */
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-8);
+      }
+
+      .hero {
+        display: block;
+      }
+
+      .hero-heading {
+        font-size: 2rem;
+      }
     }
 
-    .mobile-nav-link {
-      display: block;
-      padding: var(--spacing-2);
-      color: var(--color-white);
-      text-decoration: none;
-      font-size: var(--font-size-lg);
-      font-weight: 500;
-      transition: background-color var(--transition-medium) var(--transition-ease);
+    @media (min-width: 1024px) {
+      .hero-section {
+        padding-top: calc(70px + var(--spacing-12));
+        /* Desktop nav height + spacing */
+      }
+
+      .hero-heading {
+        font-size: 2.2rem;
+      }
+
+      .hero__img {
+        height: 500px;
+      }
     }
 
-    .mobile-nav-link:hover,
-    .mobile-nav-link:focus {
-      background-color: var(--color-navy);
-      color: var(--color-light-gold);
+    @media (min-width: 1400px) {
+      .hero__img {
+        height: var(--hero-img-height);
+      }
     }
 
-    .mobile-nav-close {
-      position: absolute;
-      top: var(--spacing-2);
-      right: var(--spacing-2);
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: var(--color-white);
-      cursor: pointer;
-      line-height: 1;
+    /* ===== 6. SERVICES SECTION RESPONSIVE ===== */
+    .services-section {
+      padding: var(--spacing-8) 0;
     }
 
-
-    /* Cookie Consent Modal */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: var(--z-modal);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    .cookie-modal {
-      background-color: white;
-      border-radius: var(--border-radius-base);
-      width: 100%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      color: var(--color-black);
+    @media (min-width: 768px) {
+      .services-section {
+        padding: var(--spacing-12) 0;
+      }
     }
 
-    .modal-header {
-      padding: var(--spacing-4) var(--spacing-6);
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    @media (min-width: 1024px) {
+      .services-section {
+        padding: var(--spacing-12) 0;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-8);
+      }
     }
 
-    .modal-title {
-      font-family: var(--font-heading);
-      font-size: var(--font-size-2xl);
-      font-weight: 700;
-      color: var(--color-black);
-      margin: 0;
+    /* ===== 7. EXPERIENCE SECTION RESPONSIVE ===== */
+    .experience-section {
+      padding: var(--spacing-8) 0;
     }
 
-    .close-btn {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0;
-      color: #666;
+    .experience-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
     }
 
-    .modal-body {
-      padding: var(--spacing-6);
+    .stats-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-4);
     }
 
-    .modal-text {
-      margin-bottom: var(--spacing-6);
-      color: #333;
+    @media (min-width: 768px) {
+      .experience-section {
+        padding: var(--spacing-12) 0;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-8);
+      }
+
+      .stats-container {
+        gap: var(--spacing-6);
+      }
+
+      .stat-number {
+        font-size: var(--font-size-4xl);
+      }
+
+      .stat-label {
+        font-size: var(--font-size-base);
+      }
     }
 
-    .consent-category {
-      margin-bottom: var(--spacing-4);
-      border: 1px solid #eee;
-      border-radius: var(--border-radius-base);
+    @media (min-width: 1024px) {
+      .experience-section {
+        padding: var(--spacing-12) 0;
+      }
+
+      .experience-grid {
+        gap: var(--spacing-12);
+      }
+
+      .stats-container {
+        gap: var(--spacing-8);
+      }
     }
 
-    .category-header {
+    /* ===== 8. CONTACT SECTION RESPONSIVE ===== */
+    .contact-section {
+      padding: var(--spacing-8) 0;
+      min-height: auto;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+    }
+
+    .contact-form {
       padding: var(--spacing-4);
-      display: flex;
-      justify-content: space-between;
+    }
+
+    @media (min-width: 768px) {
+      .contact-section {
+        padding: var(--spacing-12) 0;
+        min-height: 500px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-8);
+      }
+
+      .contact-form {
+        padding: var(--spacing-6);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .contact-section {
+        padding: var(--spacing-12) 0;
+        min-height: 600px;
+      }
+
+      .contact-grid {
+        gap: var(--spacing-12);
+      }
+
+      .contact-form {
+        padding: var(--spacing-8);
+      }
+    }
+
+    /* ===== 9. FOOTER RESPONSIVE ===== */
+    .footer {
+      padding: var(--spacing-8) 0;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .footer {
+        padding: var(--spacing-12) 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer {
+        padding-top: var(--spacing-12);
+        padding-bottom: var(--spacing-8);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: var(--spacing-12);
+      }
+    }
+
+    /* ===== 10. COOKIE BANNER RESPONSIVE ===== */
+    .cookie-banner {
+      padding: var(--spacing-4);
+    }
+
+    .cookie-content {
+      flex-direction: column;
+      gap: var(--spacing-4);
       align-items: center;
-      cursor: pointer;
-      background-color: #f9f9f9;
-      position: relative;
     }
 
-    .category-title {
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-      color: #333;
-      margin: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .category-title::before {
-      content: "›";
-      display: inline-block;
-      margin-right: var(--spacing-2);
-      transition: transform 0.3s ease;
-    }
-
-    .category-content {
-      padding: 0 var(--spacing-4) var(--spacing-4) var(--spacing-4);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .consent-category.expanded .category-content {
-      max-height: 300px;
-    }
-
-    .consent-category.expanded .category-title::before {
-      transform: rotate(90deg);
-    }
-
-    .status-label {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      color: #43a047;
-      margin-left: auto;
-    }
-
-    /* Toggle Switch */
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 30px;
-      margin-left: var(--spacing-4);
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 22px;
-      width: 22px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background-color: #3f51b5;
-    }
-
-    input:focus + .slider {
-      box-shadow: 0 0 1px #3f51b5;
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(30px);
-    }
-
-    .modal-footer {
-      padding: var(--spacing-4) var(--spacing-6);
-      border-top: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--spacing-2);
-    }
-
-    .footer-button {
-      padding: var(--spacing-2) var(--spacing-4);
-      border-radius: var(--border-radius-base);
-      font-weight: 500;
-      cursor: pointer;
-      min-width: 120px;
+    .cookie-text {
       text-align: center;
-      transition: all 0.3s ease;
+      font-size: 0.875rem;
     }
 
-    .btn-reject {
-      background-color: #f2f2f2;
-      color: #333;
-      border: 1px solid #ddd;
+    .cookie-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-3);
+      justify-content: center;
     }
 
-    .btn-reject:hover {
-      background-color: #e0e0e0;
+    .cookie-button {
+      min-width: 90px;
+      padding: var(--spacing-2) var(--spacing-4);
+      font-size: 0.875rem;
     }
 
-    .btn-save {
-      background-color: #4a6ff3;
-      color: white;
-      border: none;
+    @media (min-width: 576px) {
+      .cookie-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .cookie-text {
+        text-align: left;
+        margin-right: var(--spacing-4);
+        max-width: 60%;
+      }
+
+      .cookie-buttons {
+        flex-wrap: nowrap;
+      }
     }
 
-    .btn-save:hover {
-      background-color: #3558e6;
+    @media (min-width: 768px) {
+      .cookie-banner {
+        padding: var(--spacing-2) var(--spacing-4);
+      }
+
+      .cookie-text {
+        font-size: 1rem;
+      }
+
+      .cookie-button {
+        min-width: 120px;
+        padding: var(--spacing-1) var(--spacing-3);
+        font-size: 1rem;
+      }
     }
 
-    .btn-accept {
-      background-color: #4a6ff3;
-      color: white;
-      border: none;
+    /* Cookie modal responsive */
+    .cookie-modal {
+      width: 90%;
+      max-height: 85vh;
     }
 
-    .btn-accept:hover {
-      background-color: #3558e6;
-    }
-
-    .show-more-btn {
-      color: #4a6ff3;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .show-more-btn:hover {
-      text-decoration: underline;
-    }
-
-    .powered-by {
-      padding: var(--spacing-2) var(--spacing-6);
-      text-align: right;
-      font-size: var(--font-size-sm);
-      color: #666;
-    }
-
-    .powered-by-link {
-      color: #333;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
       .cookie-modal {
-        width: 90%;
-      }
-
-      .modal-footer {
-        flex-direction: column;
-      }
-
-      .footer-button {
-        width: 100%;
+        width: 80%;
+        max-width: 700px;
       }
     }
 
-      /* Cookie Consent Modal */
-      .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: var(--z-modal);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+    @media (min-width: 1024px) {
+      .cookie-modal {
+        width: 70%;
+        max-width: 800px;
+      }
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
+    /* ===== 11. READ MORE COMPONENTS RESPONSIVE ===== */
+    .read-more-block__content {
+      max-height: 150px;
     }
 
-    .cookie-modal {
-      background-color: white;
-      border-radius: var(--border-radius-base);
+    @media (min-width: 768px) {
+      .read-more-block__content {
+        max-height: 180px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .read-more-block__content {
+        max-height: 200px;
+      }
+    }
+
+    /* ===== 12. UTILITY CLASSES FOR RESPONSIVE DISPLAY ===== */
+    @media (min-width: 768px) {
+      .hide-on-mobile {
+        display: block;
+      }
+
+      .show-on-mobile-only {
+        display: none;
+      }
+    }
+
+    /* ===== 13. ACCESSIBILITY PREFERENCE MEDIA QUERIES ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .service-card,
+      .stat-card,
+      .form-input,
+      .footer-link,
+      .social-link,
+      .cookie-button {
+        transition: none;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      :root {
+        --color-navy: #000000;
+        --color-gold: #FFD700;
+        --color-dark-blue: #000033;
+        --color-text: #FFFFFF;
+      }
+
+      .nav,
+      .contact-section,
+      .footer {
+        border: 2px solid #FFFFFF;
+      }
+
+      .service-card,
+      .stat-card,
+      .contact-form-wrapper {
+        border: 2px solid #000000;
+      }
+    }
+
+    /* ===== 14. PRINT STYLES ===== */
+    @media print {
+      body {
+        background: white;
+        color: black;
+        font-size: 12pt;
+      }
+
+      .nav,
+      .mobile-menu,
+      .cookie-banner,
+      .social-links {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .hero-section,
+      .services-section,
+      .experience-section,
+      .contact-section,
+      .footer {
+        padding: 1cm 0;
+        page-break-inside: avoid;
+        background: none !important;
+      }
+
+      a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-style: italic;
+      }
+    }
+
+
+    /* Image container with improved positioning */
+    .image-container {
       width: 100%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-xl);
       position: relative;
-      color: var(--color-black);
-    }
-
-    .modal-header {
-      padding: var(--spacing-4) var(--spacing-6);
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--color-navy);
-      color: var(--color-white);
-      border-top-left-radius: var(--border-radius-base);
-      border-top-right-radius: var(--border-radius-base);
-    }
-
-    .modal-title {
-      font-family: var(--font-heading);
-      font-size: var(--font-size-2xl);
-      font-weight: 700;
-      color: var(--color-white);
-      margin: 0;
-    }
-
-    .close-btn {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0;
-      color: var(--color-white);
-      transition: color 0.2s ease;
-    }
-
-    .close-btn:hover {
-      color: var(--color-light-gold);
-    }
-
-    .modal-body {
-      padding: var(--spacing-6);
-    }
-
-    .modal-text {
-      margin-bottom: var(--spacing-6);
-      color: #333;
-    }
-
-    .consent-category {
-      margin-bottom: var(--spacing-4);
-      border: 1px solid #eee;
-      border-radius: var(--border-radius-base);
-    }
-
-    .category-header {
-      padding: var(--spacing-4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      background-color: #f9f9f9;
-      position: relative;
-      border-radius: var(--border-radius-base);
-    }
-
-    .category-title {
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-      color: #333;
-      margin: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .category-title::before {
-      content: "›";
-      display: inline-block;
-      margin-right: var(--spacing-2);
-      transition: transform 0.3s ease;
-    }
-
-    .category-content {
-      padding: 0 var(--spacing-4) var(--spacing-4) var(--spacing-4);
-      max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      border-radius: 8px 8px 0 0;
+      background-color: #3a3a3a;
+      height: 550px;
+      /* Increased height */
     }
 
-    .consent-category.expanded .category-content {
-      max-height: 300px;
+    /* The responsive image with improved scaling and subtle rotation */
+    .lawyer-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      /* Changed to contain to show full image */
+      transform: scale(0.95);
+      /* Slightly smaller scale to ensure everything fits */
+      transition: transform 0.5s ease;
     }
-
-    .consent-category.expanded .category-title::before {
-      transform: rotate(90deg);
-    }
-
-    .status-label {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      color: #43a047;
-      margin-left: auto;
-    }
-
-    /* Toggle Switch */
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 30px;
-      margin-left: var(--spacing-4);
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 22px;
-      width: 22px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background-color: var(--color-gold);
-    }
-
-    input:focus + .slider {
-      box-shadow: 0 0 1px var(--color-gold);
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(30px);
-    }
-
-    .modal-footer {
-      padding: var(--spacing-4) var(--spacing-6);
-      border-top: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--spacing-2);
-      background-color: #f9f9f9;
-      border-bottom-left-radius: var(--border-radius-base);
-      border-bottom-right-radius: var(--border-radius-base);
-    }
-
-    .footer-button {
-      padding: var(--spacing-2) var(--spacing-4);
-      border-radius: var(--border-radius-base);
-      font-weight: 500;
-      cursor: pointer;
-      min-width: 120px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .btn-reject {
-      background-color: #f2f2f2;
-      color: #333;
-      border: 1px solid #ddd;
-    }
-
-    .btn-reject:hover {
-      background-color: #e0e0e0;
-    }
-
-    .btn-save {
-      background-color: var(--color-navy);
-      color: white;
-      border: none;
-    }
-
-    .btn-save:hover {
-      background-color: var(--color-dark-blue);
-    }
-
-    .btn-accept {
-      background-color: var(--color-gold);
-      color: var(--color-navy);
-      border: none;
-    }
-
-    .btn-accept:hover {
-      background-color: var(--color-light-gold);
-    }
-
-    .show-more-btn {
-      color: var(--color-light-blue);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .show-more-btn:hover {
-      text-decoration: underline;
-      color: var(--color-navy);
-    }
-
-    .powered-by {
-      padding: var(--spacing-2) var(--spacing-6);
-      text-align: right;
-      font-size: var(--font-size-sm);
-      color: #666;
-    }
-
-    .powered-by-link {
-      color: var(--color-navy);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
   </style>
 </head>
 
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
   <header>
     <nav aria-label="Main navigation" class="nav">
       <div class="container nav-content">
         <div class="logo-section">
           <a href="/" class="logo-link">
-            <img src="/src/assets/logo.webp" alt="NP Legal" class="logo-image" width="240" height="144">
+            <img src="/src/assets/images/logo/legalexpert-law-firm-logo-poland-320.webp" srcset="
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-140.webp 140w, 
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-240.webp 240w, 
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-320.webp 320w,
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-640.webp 640w"
+              sizes="(max-width: 480px) 140px, (max-width: 768px) 160px, (max-width: 992px) 200px, 240px"
+              alt="Логотип юридичної фірми Legal Expert – правова допомога українцям у Польщі" width="320" height="67"
+              fetchpriority="high" class="logo-img">
           </a>
         </div>
 
@@ -1458,12 +2117,11 @@
           <a href="#about" role="menuitem">Про компанію</a>
           <a href="#contact" role="menuitem">Контакти</a>
         </div>
-        <a href="#contact">
-          <button class="btn btn-primary consultation-btn" style="display: none;" aria-label="Book a consultation">
-            Запис на консультацію
-          </button>
-        </a>
-       
+        <button class="btn btn-primary consultation-btn" style="display: none;" aria-label="Book a consultation"
+          onclick="window.location.href='#contact'">
+          Запис на консультацію
+        </button>
+
         <button id="mobile-menu" class="mobile-menu" aria-label="Toggle menu" aria-expanded="false"
           aria-controls="mobile-nav">
           ☰ Меню
@@ -1477,6 +2135,15 @@
         <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">Про компанію</a></li>
         <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Контакти</a></li>
       </ul>
+      <button class="mobile-nav-close" id="closeNav" aria-label="Close menu">
+        &times;
+      </button>
+      <div style="margin-top: var(--spacing-6); text-align: center;">
+        <button class="btn btn-primary consultation-btn" style="display: none;" aria-label="Book a consultation"
+          onclick="window.location.href='#contact'">
+          Запис на консультацію
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -1490,23 +2157,25 @@
             <!-- Hidden checkbox to track state -->
             <input type="checkbox" class="read-more-block__toggle" id="read-more-block-1">
 
-            <h1 id="hero-heading" class="hero-heading">Про Компанію "Legal Expert"</h1>
+            <h1 id="hero-heading" class="hero-heading">Про компанію "Legal Expert"</h1>
             <!-- The actual content -->
             <div class="read-more-block__content">
               <p>Ласкаво просимо на офіційний сайт "Legal Expert", компанії, яка відіграє ключову роль у юридичному
-                супроводженні українців в Польщі. Заснована на початку 2023 році українським адвокатом з 15-річним
-                досвідом, яка була вписана в Реєстр закордонних адвокатів Польщі, що дає право здійснення юридичної
-                діяльності на території Польщі та створення компанії - Kancelaria prawna. Наша компанія спеціалізується
-                на наданні комплексних юридичних послуг, обслуговуючи клієнтів у найрізноманітніших сферах діяльності.
-                Ми успішно співпрацювали з представниками різних галузей, таких як гастрономія, beauty, барбершопи,
-                стоматології, івент-агенції, IT-компанії, HR-агенції, інтернет-магазини, сфера дошкільної освіти,
-                швейний бізнес та інфобізнес. Наш досвід і професіоналізм забезпечують надійний юридичний захист і
-                підтримку для кожного нашого клієнта, незалежно від складності їхніх запитів. Тому, у своїй роботі ми
-                керуємося принципами прозорості, професіоналізму та звісно ж конфіденційності, що дозволяє нам будувати
-                довірчі та довгострокові відносини з нашими клієнтами. Незалежно від того, чи ви тільки розпочинаєте
-                свою діяльність у Польщі, чи вже маєте успішний бізнес, ми можемо вам допомогти розібратися у всіх
-                юридичних нюансах. Адже наш досвід у поєднанні з глибокими знаннями польського та українського
-                законодавства дозволяє знаходити найкращі рішення навіть у найскладніших ситуаціях.</p>
+                супроводженні українців в Польщі. Заснована на початку 2023 році.
+
+                Наша компанія спеціалізується на наданні комплексних юридичних послуг, обслуговуючи клієнтів у
+                найрізноманітніших сферах діяльності. Ми успішно співпрацювали з представниками різних галузей, таких як
+                гастрономія, beauty, барбершопи, стоматології, івент-агенції, IT-компанії, HR-агенції,
+                інтернет-магазини, сфера дошкільної освіти, швейний бізнес та інфобізнес. Наш досвід і професіоналізм
+                забезпечують надійний юридичний захист і підтримку для кожного нашого клієнта, незалежно від складності
+                їхніх запитів. Тому, у своїй роботі ми керуємося принципами прозорості, професіоналізму та звісно ж
+                конфіденційності, що дозволяє нам будувати довірчі та довгострокові відносини з нашими клієнтами.
+                Незалежно від того, чи ви тільки розпочинаєте свою діяльність у Польщі, чи вже маєте успішний бізнес, ми
+                можемо вам допомогти розібратися у всіх юридичних нюансах. Адже наш досвід у поєднанні з глибокими
+                знаннями польського та українського законодавства дозволяє знаходити найкращі рішення навіть у
+                найскладніших ситуаціях.
+
+              </p>
               <div class="read-more-block__fade"></div>
             </div>
 
@@ -1518,14 +2187,15 @@
           <!-- Image optimization best practices -->
           <picture class="hero">
             <source type="image/webp" srcset="
-      ./src/assets/images/header-legal-300.webp 300w,
-      ./src/assets/images/header-legal-600.webp 600w,
-      ./src/assets/images/header-legal-900.webp 900w,
-      ./src/assets/images/header-legal-1200.webp 1200w" sizes="(max-width: 768px) 100vw,
-           (max-width: 1200px) 80vw,
-           1200px">
-            <img src="./src/assets/images/header-legal-900.webp" alt="Legal header image" loading="lazy"
-              class="hero__img">
+              /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-300.webp 300w,
+              /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-600.webp 600w,
+              /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-900.webp 900w,
+              /src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-1200.webp 1200w" sizes="(max-width: 768px) 100vw,
+                     (max-width: 1200px) 80vw,
+                     1200px">
+            <img src="/src/assets/images/ukrainian-lawyer-legalexpert-founder-warsaw-900.webp"
+              alt="Український юрист у Варшаві – засновниця Legal Expert, юридичної фірми для українців у Польщі"
+              width="1200" height="1800" fetchpriority="high" class="hero__img">
           </picture>
         </div>
       </div>
@@ -1653,8 +2323,6 @@
             <label for="service-read-more-4" class="service-read-more__collapse-btn">Показати менше</label>
           </div>
         </div>
-
-
 
         <div class="service-card">
           <div class="service-icon">
@@ -1811,26 +2479,45 @@
     <div class="container">
       <div class="experience-grid">
         <div class="experience-image">
-          <img src="/api/placeholder/800/600" alt="Professional lawyer reviewing documents in office"
-            class="lawyer-image" >
+          <div class="image-container">
+            <picture>
+              <!-- WebP versions -->
+              <source type="image/webp" srcset="/src/assets/images/ukrainian-lawyer-working-laptop-poland-legalexpert-small.webp 480w,
+                /src/assets/images/ukrainian-lawyer-working-laptop-poland-legalexpert-medium.webp 768w,
+                /src/assets/images/ukrainian-lawyer-working-laptop-poland-legalexpert-large.webp 1024w,
+              /src/assets/images/ukrainian-lawyer-working-laptop-poland-legalexpert-xlarge.webp 1440w" sizes="(max-width: 600px) 100vw,
+                       (max-width: 1024px) 80vw,
+                       1024px">
+
+              <!-- Fallback for browsers that don't support WebP -->
+              <img src="/src/assets/images/ukrainian-lawyer-working-laptop-poland-legalexpert-medium.webp"
+                alt="Юрист із досвідом понад 15 років працює за ноутбуком – Legal Expert" width="768" height="432"
+                fetchpriority="low" loading="lazy" decoding="async" class="lawyer-image">
+            </picture>
+          </div>
         </div>
 
         <div class="experience-content">
-          <h2 id="experience-heading" class="experience-title">15 Years of Legal Excellence</h2>
+          <h2 id="experience-heading" class="experience-title">15 Років юридичного досвіду</h2>
           <p class="experience-description">
-            With a Master of Laws degree and extensive experience in commercial, corporate, civil, and international
-            law, Nataliia Poliach provides expert legal services across borders.
+            Засновниця компанії - український адвокат із понад 15-річним досвідом, яка у 2023 році була офіційно вписана
+            до Реєстру іноземних адвокатів Польщі, що надало право здійснювати юридичну діяльність на території
+            Республіки Польща та створити власну Kancelaria Prawna. У 2022 році вона успішно завершила курс підвищення
+            кваліфікації за напрямком «Prawo w zakresie porównania przepisów prawnych w Unii Europejskiej i Ukrainy»,
+            проведений спільно з Wyższą Szkołą Bezpieczeństwa Wewnętrznego w Łodzi. Окрім цього, має численні
+            сертифікати в галузях польського права, що підтверджують її експертизу та здатність ефективно консультувати
+            клієнтів відповідно до місцевого законодавства
           </p>
 
           <div class="stats-container">
             <div class="stat-card">
               <span class="stat-number">15+</span>
-              <span class="stat-label">Years Experience</span>
+              <span class="stat-label">15 років досвіду</span>
             </div>
 
             <div class="stat-card">
               <span class="stat-number">500+</span>
-              <span class="stat-label">Satisfied Clients</span>
+              <span class="stat-label">Клієнти, які довіряють нам</span>
             </div>
           </div>
         </div>
@@ -1880,20 +2567,20 @@
             <div class="form-group">
               <label for="name" class="form-label"></label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Введіть ваше повне ім'я"
-                required >
+                required>
             </div>
 
             <div class="form-group">
               <label for="email" class="form-label"></label>
               <input type="email" id="email" name="email" class="form-input" placeholder="Введіть вашу електронну пошту"
-                required >
+                required>
             </div>
 
             <div class="form-group">
               <label for="phone" class="form-label"></label>
               <input type="tel" id="phone" name="phone" class="form-input" placeholder="+48 123 456 789"
                 pattern="^\+48\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}$"
-                title="Будь ласка, введіть номер у форматі: +48 123 456 789" >
+                title="Будь ласка, введіть номер у форматі: +48 123 456 789">
             </div>
 
             <div class="form-group">
@@ -1904,7 +2591,7 @@
 
             <div class="form-group privacy-consent">
               <div class="checkbox-wrapper">
-                <input type="checkbox" id="privacy" name="privacy" required >
+                <input type="checkbox" id="privacy" name="privacy" required>
                 <label for="privacy">
                   Я даю згоду на зберігання моєї інформації відповідно до вашої
                   <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Політики конфіденційності</a>
@@ -1912,10 +2599,11 @@
               </div>
             </div>
 
-            <input type="hidden" name="csrfToken" id="csrfToken" >
-              <!-- Feedback block with ARIA attributes and initially hidden -->
-  <div id="form-feedback" class="form-feedback" style="display: none;" role="alert" aria-live="assertive" aria-hidden="true" data-testid="form-feedback"></div>
-            <button type="submit" class="btn btn-primary submit-button">
+            <input type="hidden" name="csrfToken" id="csrfToken">
+            <!-- Feedback block with ARIA attributes and initially hidden -->
+            <div id="form-feedback" class="form-feedback" style="display: none;" role="alert" aria-live="assertive"
+              aria-hidden="true" data-testid="form-feedback"></div>
+            <button type="submit" class="btn btn-primary">
               Надіслати запит
             </button>
           </form>
@@ -1931,7 +2619,14 @@
         <!-- Brand Column -->
         <div class="footer-brand">
           <a href="/" class="logo-link">
-            <img src="/src/assets/logo.webp" alt="NP Legal" class="logo-image" width="240" height="144">
+            <img src="/src/assets/images/logo/legalexpert-law-firm-logo-poland-320.webp" srcset="
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-140.webp 140w, 
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-240.webp 240w, 
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-320.webp 320w,
+            /src/assets/images/logo/legalexpert-law-firm-logo-poland-640.webp 640w"
+              sizes="(max-width: 480px) 140px, (max-width: 768px) 160px, (max-width: 992px) 200px, 240px"
+              alt="Логотип юридичної фірми Legal Expert – правова допомога українцям у Польщі" width="320" height="67"
+              fetchpriority="high" class="logo-img">
           </a>
           <p class="brand-description">
             Професійні юридичні послуги по всій території Польщі.
@@ -1954,7 +2649,6 @@
           <h3 class="footer-title">Правова інформація</h3>
           <nav class="footer-nav" aria-label="Legal navigation">
             <a href="/privacy-policy.html" class="footer-link">Політика конфіденційності</a>
-            <a href="#cookies" class="footer-link">Політика щодо файлів cookie</a>
           </nav>
         </div>
 
@@ -1989,26 +2683,25 @@
       </div>
     </div>
     <div class="copyright">
-      <p>© 2025 NP Legal. All rights reserved.</p>
+      <p>© 2025 Legal Expert. All rights reserved. | Powered by WeKnowIT</p>
     </div>
   </footer>
 
   <!-- Cookie Consent Banner -->
   <div class="cookie-banner" role="alert" aria-live="polite">
     <div class="cookie-content">
-      <p class="cookie-text">
-        Ми використовуємо файли cookie для покращення вашого досвіду. Продовжуючи відвідувати цей сайт, ви погоджуєтесь
-        з використанням нами файлів cookie </p>
+      <p class="cookie-text">Ми використовуємо файли cookie. Продовжуючи перегляд, ви погоджуєтесь із нашою <a
+          href="privacy-policy.html#rodzaj-danych">Політикою конфіденційності</a>.</p>
       <div class="cookie-buttons">
-       
+
         <button id="showModal" class="cookie-button decline-button" aria-label="Decline cookies">
-         Налаштування
-      </button>
-       <button class="cookie-button decline-button" aria-label="Decline cookies"
+          Налаштування
+        </button>
+        <button class="cookie-button decline-button" aria-label="Decline cookies"
           onclick="document.querySelector('.cookie-banner').style.display = 'none';">
           Відхилити
         </button>
-      <button class="btn btn-primary cookie-button accept-button" aria-label="Accept cookies"
+        <button class="btn btn-primary cookie-button" aria-label="Accept cookies"
           onclick="document.querySelector('.cookie-banner').style.display = 'none';">
           Прийняти
         </button>
@@ -2016,48 +2709,37 @@
     </div>
   </div>
 
-
-
   <!-- Cookie Consent Modal -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="cookie-modal">
       <div class="modal-header">
-        <h2 class="modal-title">Customise Consent Preferences</h2>
+        <h2 class="modal-title">Налаштувати параметри згоди</h2>
         <button class="close-btn" id="closeModal">×</button>
       </div>
       <div class="modal-body">
         <div class="modal-text">
-          <p>We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.</p>
-          <p>The cookies that are categorised as "Necessary" are stored on your browser as they are essential for enabling the basic functionalities of the site. ... <a href="#" class="show-more-btn">Show more</a></p>
+          <p>Ми використовуємо файли cookie, щоб забезпечити вам зручну навігацію та належне функціонування нашого
+            сайту. Нижче ви знайдете детальну інформацію про всі файли cookie у кожній категорії згоди.</p>
+          <p>Файли cookie, які належать до категорії «Необхідні», зберігаються у вашому браузері, оскільки вони є
+            обов'язковими для забезпечення основних функцій сайту. Без них сайт не зможе працювати належним чином. <a
+              href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Політики конфіденційності</a></p>
         </div>
-        
+
         <!-- Necessary Cookies -->
         <div class="consent-category expanded">
           <div class="category-header">
-            <h3 class="category-title">Necessary</h3>
-            <span class="status-label">Always Active</span>
+            <h3 class="category-title">Необхідні</h3>
+            <span class="status-label">Завжди активні</span>
           </div>
           <div class="category-content">
-            <p>Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.</p>
+            <p>Необхідні файли cookie потрібні для забезпечення основних функцій цього сайту, таких як безпечний вхід у
+              систему або налаштування ваших параметрів згоди. Ці файли cookie не зберігають жодних персональних даних.
+            </p>
           </div>
         </div>
-        
-        <!-- Functional Cookies -->
-        <div class="consent-category">
-          <div class="category-header">
-            <h3 class="category-title">Functional</h3>
-            <label class="toggle-switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="category-content">
-            <p>Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.</p>
-          </div>
-        </div>
-        
+
         <!-- Analytics Cookies -->
-        <div class="consent-category">
+        <!-- <div class="consent-category">
           <div class="category-header">
             <h3 class="category-title">Analytics</h3>
             <label class="toggle-switch">
@@ -2068,29 +2750,12 @@
           <div class="category-content">
             <p>Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.</p>
           </div>
-        </div>
-        
-        <!-- Performance Cookies -->
-        <div class="consent-category">
-          <div class="category-header">
-            <h3 class="category-title">Performance</h3>
-            <label class="toggle-switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="category-content">
-            <p>Performance cookies are used to understand and analyse the key performance indexes of the website which helps in delivering a better user experience for the visitors.</p>
-          </div>
-        </div>
+        </div> -->
       </div>
       <div class="modal-footer">
-        <button class="footer-button btn-reject">Reject All</button>
-        <button class="footer-button btn-save">Save My Preferences</button>
-        <button class="footer-button btn-accept">Accept All</button>
-      </div>
-      <div class="powered-by">
-        Powered by <a href="#" class="powered-by-link">CookieYes</a>
+        <button class="footer-button btn-reject">Відхилити все</button>
+        <button class="footer-button btn-save">Зберегти мої налаштування</button>
+        <button class="footer-button btn-accept">Прийняти все</button>
       </div>
     </div>
   </div>
