@@ -3,8 +3,8 @@ export const VALIDATION = {
   name: { min: 2, max: 100 },
   message: { min: 10, max: 1000 },
   phone: {
-    pattern: /^\+48\s\d{3}\s\d{3}\s\d{3}$/,
-    example: "+48 123 456 789",
+    pattern: /^\d{3}\s\d{3}\s\d{3}$/,
+    example: "123 456 789",
   },
 };
 

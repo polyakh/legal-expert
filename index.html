@@ -2090,6 +2090,63 @@
       /* Slightly smaller scale to ensure everything fits */
       transition: transform 0.5s ease;
     }
+
+
+    /* Phone input group styling */
+.phone-input-group {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: var(--border-width-base) solid transparent;
+  border-radius: var(--border-radius-base);
+  padding: var(--spacing-2);
+  transition: border-color var(--transition-fast) var(--transition-ease);
+}
+
+.phone-input-group:focus-within {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+.country-code-select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  padding: 0 var(--spacing-4) 0 var(--spacing-2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-1) center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.phone-number-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  padding: var(--spacing-2);
+  min-width: 0;
+}
+
+.phone-number-input::placeholder {
+  color: var(--color-placeholder);
+}
+
+/* Remove default focus styles - using parent container's focus */
+.country-code-select:focus,
+.phone-number-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Hover states */
+.country-code-select:hover {
+  color: var(--color-link-hover);
+}
   </style>
 </head>
 
@@ -2327,7 +2384,7 @@
         <div class="service-card">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-larg">
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon larg-icon">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
               <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
@@ -2356,7 +2413,7 @@
         <div class="service-card">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-larg">
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon larg-icon">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M7 20l10 0" />
               <path d="M6 6l6 -1l6 1" />
@@ -2413,7 +2470,7 @@
         <div class="service-card">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-larg">
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon larg-icon">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
               <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
@@ -2577,10 +2634,15 @@
             </div>
 
             <div class="form-group">
-              <label for="phone" class="form-label"></label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+48 123 456 789"
-                pattern="^\+48\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}$"
-                title="Будь ласка, введіть номер у форматі: +48 123 456 789">
+              <div class="phone-input-group">
+                <select id="countryCode" name="countryCode" class="country-code-select" required>
+                  <option value="+48">+48</option>
+                  <option value="+380">+380</option>
+                </select>
+                <input type="tel" id="phone" name="phone" required class="phone-number-input" 
+                       placeholder="123 456 789" pattern="^\d{3}\s\d{3}\s\d{3}$"
+                       title="Будь ласка, введіть номер у форматі: 123 456 789">
+              </div>
             </div>
 
             <div class="form-group">
@@ -2759,7 +2821,7 @@
       </div>
     </div>
   </div>
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>

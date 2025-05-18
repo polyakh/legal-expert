@@ -1,41 +1,50 @@
 // frontend-validation.js
+
+
+import { ServiceContainer } from './service-container.js'
+
 import { VALIDATION } from "./shared.js";
+import { validatePhone } from './form.js'
 
 export function validateAttachContact(data) {
   const errors = {};
 
+  const validator = ServiceContainer.services.validatorService;
   // Name
   const name = data.name?.trim() || "";
   if (!name) {
-    errors.name = "Name is required.";
+    errors.name = "Ім'я є обов'язковим.";
   } else if (name.length < VALIDATION.name.min || name.length > VALIDATION.name.max) {
-    errors.name = `Name must be ${VALIDATION.name.min}–${VALIDATION.name.max} characters.`;
+    errors.name = `Ім'я повинно містити від ${VALIDATION.name.min} до ${VALIDATION.name.max} символів.`;
   }
 
   // Email
   const email = data.email?.trim() || "";
   // simple HTML5‐style email check
   if (!email) {
-    errors.email = "Email is required.";
+    errors.email = "Email є обов'язковим.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.email = "Email must be valid.";
+    errors.email = "Email повинен бути дійсним.";
   }
 
-  // Phone (optional)
+  // Phone validation using ServiceContainer
   const rawPhone = data.phone?.trim() || "";
-
-  // Normalize any extra spaces (e.g., double spaces, tabs, etc.)
-  const phone = rawPhone.replace(/\s+/g, " ");
-
-  // Optional: log to debug
-  console.log("[Validation] Raw phone:", `"${rawPhone}"`);
-  console.log("[Validation] Normalized phone:", `"${phone}"`);
-  console.log("[Validation] Matches pattern?", VALIDATION.phone.pattern.test(phone));
-
-  if (phone && !VALIDATION.phone.pattern.test(phone)) {
-    errors.phone = `Phone must match ${VALIDATION.phone.example} format.`;
+  const countryCode = data.countryCode?.trim() || "+48"; // Default to Poland
+  const phone = rawPhone.replace(/\s+/g, "");
+  
+  if (!rawPhone) {
+    errors.phone = "Номер телефону є обов'язковим.";
+  } else {
+    try {
+      const validationResult = validator.validateAndFormatPhoneNumber(countryCode, phone);
+      
+      if (!validationResult.isValid) {
+        errors.phone = validationResult.errors.join(', ');
+      }
+    } catch (error) {
+      errors.phone = `Помилка валідації телефону: ${error.message}`;
+    }
   }
-
   // Message
   const rawMessage = data.message?.trim() || "";
   const message = rawMessage.replace(/\r?\n|\r/g, " ");
@@ -43,14 +52,14 @@ export function validateAttachContact(data) {
   console.log("[Message]", `"${message}"`, message.length);
 
   if (!message) {
-    errors.message = "Message is required.";
+    errors.message = "Повідомлення є обов'язковим.";
   } else if (message.length < VALIDATION.message.min || message.length > VALIDATION.message.max) {
-    errors.message = `Message must be ${VALIDATION.message.min}–${VALIDATION.message.max} characters.`;
+    errors.message = `Повідомлення повинно містити від ${VALIDATION.message.min} до ${VALIDATION.message.max} символів.`;
   }
 
   // Privacy consent (checkbox → boolean)
   if (!data.privacy) {
-    errors.privacy = "Privacy consent must be accepted.";
+    errors.privacy = "Необхідно прийняти згоду на обробку персональних даних.";
   }
 
   return errors;
